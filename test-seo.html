@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Implementation Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .test-pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .test-fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .test-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .meta-display {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        
+        .structured-data {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .heading-hierarchy {
+            margin: 20px 0;
+        }
+        
+        .heading-hierarchy h1,
+        .heading-hierarchy h2,
+        .heading-hierarchy h3 {
+            margin: 10px 0;
+        }
+        
+        .error-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .error-list li {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SEO Implementation Test</h1>
+    <p>This page tests the SEO optimization features including dynamic meta tags, Open Graph tags, structured data, and heading hierarchy validation.</p>
+
+    <div class="test-section">
+        <h2>Test Controls</h2>
+        <button onclick="initializeSEO()">Initialize SEO with Test Data</button>
+        <button onclick="testWithoutData()">Test Without Data</button>
+        <button onclick="testWithMalformedData()">Test With Malformed Data</button>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="displaySEOStatus()">Display SEO Status</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Current Meta Tags</h2>
+        <div id="meta-tags-display" class="meta-display">
+            Click "Display SEO Status" to see current meta tags
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Open Graph Tags</h2>
+        <div id="og-tags-display" class="meta-display">
+            Click "Display SEO Status" to see Open Graph tags
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Twitter Card Tags</h2>
+        <div id="twitter-tags-display" class="meta-display">
+            Click "Display SEO Status" to see Twitter Card tags
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Structured Data</h2>
+        <div id="structured-data-display" class="meta-display structured-data">
+            Click "Display SEO Status" to see structured data
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Heading Hierarchy Test</h2>
+        <div class="heading-hierarchy">
+            <h1>Main Title (H1)</h1>
+            <h2>Section Title (H2)</h2>
+            <h3>Subsection Title (H3)</h3>
+            <h3>Another Subsection (H3)</h3>
+            <h2>Another Section (H2)</h2>
+        </div>
+        <div id="heading-validation-result" class="test-result test-info">
+            Click "Run All Tests" to validate heading hierarchy
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results">
+            <div class="test-result test-info">
+                No tests run yet. Click "Run All Tests" to begin.
+            </div>
+        </div>
+    </div>
+
+    <!-- Include required scripts -->
+    <script src="js/types.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/seo.js"></script>
+
+    <script>
+        // Test data
+        const testPortfolioData = {
+            personal: {
+                name: 'Jane Smith',
+                title: 'Senior Cloud Security Engineer',
+                bio: 'Passionate about cloud security and infrastructure automation with over 8 years of experience in cybersecurity and cloud engineering.',
+                summary: 'Experienced professional specializing in Cloud Security, Cybersecurity, AI-driven threat detection, and API security. Dedicated to creating innovative security solutions that protect business assets while enabling digital transformation.',
+                contact: {
+                    email: 'jane.smith@example.com',
+                    linkedin: 'https://linkedin.com/in/janesmith',
+                    github: 'https://github.com/janesmith',
+                    behance: 'https://behance.net/janesmith'
+                },
+                headshot: 'images/profile/jane-smith.jpg'
+            },
+            experience: [
+                {
+                    id: 'exp1',
+                    company: 'CloudSecure Inc.',
+                    title: 'Senior Cloud Security Engineer',
+                    duration: '2022 - Present',
+                    achievements: [
+                        'Led security architecture for multi-cloud environments',
+                        'Reduced security incidents by 60% through proactive monitoring',
+                        'Implemented zero-trust security model across organization'
+                    ],
+                    technologies: ['AWS', 'Azure', 'Kubernetes', 'Terraform', 'Python']
+                },
+                {
+                    id: 'exp2',
+                    company: 'TechGuard Solutions',
+                    title: 'Cybersecurity Analyst',
+                    duration: '2019 - 2022',
+                    achievements: [
+                        'Conducted security assessments for Fortune 500 clients',
+                        'Developed automated threat detection systems'
+                    ],
+                    technologies: ['SIEM', 'Python', 'Splunk', 'Nessus']
+                }
+            ],
+            projects: [
+                {
+                    id: 'proj1',
+                    title: 'AI-Powered Threat Detection Platform',
+                    description: 'Machine learning-based threat detection system for cloud environments',
+                    tools: ['Python', 'TensorFlow', 'AWS', 'Docker'],
+                    outcomes: [
+                        'Detected 95% of advanced persistent threats',
+                        'Reduced false positives by 40%'
+                    ]
+                }
+            ],
+            skills: [
+                {
+                    category: 'Cloud Security',
+                    skills: [
+                        { name: 'AWS Security', proficiency: 'expert' },
+                        { name: 'Azure Security', proficiency: 'advanced' },
+                        { name: 'Cloud Compliance', proficiency: 'expert' }
+                    ]
+                },
+                {
+                    category: 'Cybersecurity',
+                    skills: [
+                        { name: 'Threat Analysis', proficiency: 'expert' },
+                        { name: 'Penetration Testing', proficiency: 'advanced' },
+                        { name: 'SIEM', proficiency: 'expert' }
+                    ]
+                },
+                {
+                    category: 'Programming',
+                    skills: [
+                        { name: 'Python', proficiency: 'expert' },
+                        { name: 'JavaScript', proficiency: 'intermediate' },
+                        { name: 'Go', proficiency: 'intermediate' }
+                    ]
+                }
+            ]
+        };
+
+        const malformedData = {
+            personal: {
+                name: null,
+                title: undefined,
+                contact: {}
+            },
+            experience: null,
+            skills: []
+        };
+
+        // Test functions
+        function initializeSEO() {
+            try {
+                window.SEOManager.initialize(testPortfolioData);
+                addTestResult('✓ SEO initialized successfully with test data', 'pass');
+                displaySEOStatus();
+            } catch (error) {
+                addTestResult('✗ Failed to initialize SEO: ' + error.message, 'fail');
+            }
+        }
+
+        function testWithoutData() {
+            try {
+                window.SEOManager.initialize(null);
+                addTestResult('✓ SEO handled missing data gracefully', 'pass');
+            } catch (error) {
+                addTestResult('✗ SEO failed with missing data: ' + error.message, 'fail');
+            }
+        }
+
+        function testWithMalformedData() {
+            try {
+                window.SEOManager.initialize(malformedData);
+                addTestResult('✓ SEO handled malformed data gracefully', 'pass');
+            } catch (error) {
+                addTestResult('✗ SEO failed with malformed data: ' + error.message, 'fail');
+            }
+        }
+
+        function runAllTests() {
+            clearTestResults();
+            
+            // Test 1: Basic initialization
+            initializeSEO();
+            
+            // Test 2: Meta tag validation
+            testMetaTags();
+            
+            // Test 3: Open Graph validation
+            testOpenGraphTags();
+            
+            // Test 4: Twitter Card validation
+            testTwitterCardTags();
+            
+            // Test 5: Structured data validation
+            testStructuredData();
+            
+            // Test 6: Heading hierarchy validation
+            testHeadingHierarchy();
+            
+            // Test 7: Error handling
+            testErrorHandling();
+            
+            addTestResult('All tests completed!', 'info');
+        }
+
+        function testMetaTags() {
+            const title = document.title;
+            const description = document.querySelector('meta[name="description"]')?.content;
+            const author = document.querySelector('meta[name="author"]')?.content;
+            const keywords = document.querySelector('meta[name="keywords"]')?.content;
+            
+            if (title && title.includes('Jane Smith')) {
+                addTestResult('✓ Dynamic title updated correctly', 'pass');
+            } else {
+                addTestResult('✗ Dynamic title not updated: ' + title, 'fail');
+            }
+            
+            if (description && description.includes('Cloud Security')) {
+                addTestResult('✓ Meta description updated correctly', 'pass');
+            } else {
+                addTestResult('✗ Meta description not updated properly', 'fail');
+            }
+            
+            if (author === 'Jane Smith') {
+                addTestResult('✓ Author meta tag set correctly', 'pass');
+            } else {
+                addTestResult('✗ Author meta tag incorrect: ' + author, 'fail');
+            }
+            
+            if (keywords && keywords.includes('cloud')) {
+                addTestResult('✓ Keywords generated from portfolio data', 'pass');
+            } else {
+                addTestResult('✗ Keywords not generated properly', 'fail');
+            }
+        }
+
+        function testOpenGraphTags() {
+            const ogType = document.querySelector('meta[property="og:type"]')?.content;
+            const ogTitle = document.querySelector('meta[property="og:title"]')?.content;
+            const ogDescription = document.querySelector('meta[property="og:description"]')?.content;
+            const ogImage = document.querySelector('meta[property="og:image"]')?.content;
+            
+            if (ogType === 'profile') {
+                addTestResult('✓ Open Graph type set to profile', 'pass');
+            } else {
+                addTestResult('✗ Open Graph type incorrect: ' + ogType, 'fail');
+            }
+            
+            if (ogTitle && ogTitle.includes('Jane Smith')) {
+                addTestResult('✓ Open Graph title set correctly', 'pass');
+            } else {
+                addTestResult('✗ Open Graph title incorrect: ' + ogTitle, 'fail');
+            }
+            
+            if (ogDescription && ogDescription.length > 0) {
+                addTestResult('✓ Open Graph description set', 'pass');
+            } else {
+                addTestResult('✗ Open Graph description missing', 'fail');
+            }
+            
+            if (ogImage && ogImage.includes('jane-smith.jpg')) {
+                addTestResult('✓ Open Graph image set correctly', 'pass');
+            } else {
+                addTestResult('✗ Open Graph image incorrect: ' + ogImage, 'fail');
+            }
+        }
+
+        function testTwitterCardTags() {
+            const twitterCard = document.querySelector('meta[name="twitter:card"]')?.content;
+            const twitterTitle = document.querySelector('meta[name="twitter:title"]')?.content;
+            const twitterImage = document.querySelector('meta[name="twitter:image"]')?.content;
+            
+            if (twitterCard === 'summary') {
+                addTestResult('✓ Twitter card type set correctly', 'pass');
+            } else {
+                addTestResult('✗ Twitter card type incorrect: ' + twitterCard, 'fail');
+            }
+            
+            if (twitterTitle && twitterTitle.includes('Jane Smith')) {
+                addTestResult('✓ Twitter title set correctly', 'pass');
+            } else {
+                addTestResult('✗ Twitter title incorrect: ' + twitterTitle, 'fail');
+            }
+            
+            if (twitterImage) {
+                addTestResult('✓ Twitter image set', 'pass');
+            } else {
+                addTestResult('✗ Twitter image missing', 'fail');
+            }
+        }
+
+        function testStructuredData() {
+            const structuredDataScript = document.getElementById('structured-data');
+            
+            if (structuredDataScript) {
+                try {
+                    const data = JSON.parse(structuredDataScript.textContent);
+                    
+                    if (data['@context'] === 'https://schema.org') {
+                        addTestResult('✓ Structured data has correct context', 'pass');
+                    } else {
+                        addTestResult('✗ Structured data context incorrect', 'fail');
+                    }
+                    
+                    const personSchema = data['@graph']?.find(item => item['@type'] === 'Person');
+                    if (personSchema && personSchema.name === 'Jane Smith') {
+                        addTestResult('✓ Person schema created correctly', 'pass');
+                    } else {
+                        addTestResult('✗ Person schema incorrect or missing', 'fail');
+                    }
+                    
+                    const websiteSchema = data['@graph']?.find(item => item['@type'] === 'WebSite');
+                    if (websiteSchema) {
+                        addTestResult('✓ WebSite schema created', 'pass');
+                    } else {
+                        addTestResult('✗ WebSite schema missing', 'fail');
+                    }
+                    
+                } catch (error) {
+                    addTestResult('✗ Structured data is not valid JSON: ' + error.message, 'fail');
+                }
+            } else {
+                addTestResult('✗ Structured data script not found', 'fail');
+            }
+        }
+
+        function testHeadingHierarchy() {
+            const result = window.SEOManager.validateHeadingHierarchy();
+            
+            if (result.isValid) {
+                addTestResult('✓ Heading hierarchy is valid', 'pass');
+            } else {
+                addTestResult('✗ Heading hierarchy issues found:', 'fail');
+                result.errors.forEach(error => {
+                    addTestResult('  - ' + error, 'fail');
+                });
+            }
+            
+            // Display validation result
+            const validationDiv = document.getElementById('heading-validation-result');
+            if (result.isValid) {
+                validationDiv.className = 'test-result test-pass';
+                validationDiv.textContent = '✓ Heading hierarchy is valid';
+            } else {
+                validationDiv.className = 'test-result test-fail';
+                validationDiv.innerHTML = '✗ Heading hierarchy issues:<ul class="error-list">' + 
+                    result.errors.map(error => `<li>${error}</li>`).join('') + '</ul>';
+            }
+        }
+
+        function testErrorHandling() {
+            // Test with null data
+            try {
+                const tempSEO = new (window.SEOManager.constructor)();
+                tempSEO.initialize(null);
+                addTestResult('✓ Handles null data gracefully', 'pass');
+            } catch (error) {
+                addTestResult('✗ Failed to handle null data: ' + error.message, 'fail');
+            }
+            
+            // Test with malformed data
+            try {
+                const tempSEO = new (window.SEOManager.constructor)();
+                tempSEO.initialize(malformedData);
+                addTestResult('✓ Handles malformed data gracefully', 'pass');
+            } catch (error) {
+                addTestResult('✗ Failed to handle malformed data: ' + error.message, 'fail');
+            }
+        }
+
+        function displaySEOStatus() {
+            const status = window.SEOManager.getSEOStatus();
+            
+            // Display meta tags
+            const metaDisplay = document.getElementById('meta-tags-display');
+            metaDisplay.textContent = `Title: ${status.title}
+Description: ${status.description}
+Keywords: ${status.keywords}
+Author: ${document.querySelector('meta[name="author"]')?.content || 'Not set'}`;
+            
+            // Display Open Graph tags
+            const ogDisplay = document.getElementById('og-tags-display');
+            ogDisplay.textContent = `og:title: ${status.ogTitle}
+og:description: ${status.ogDescription}
+og:type: ${document.querySelector('meta[property="og:type"]')?.content || 'Not set'}
+og:url: ${document.querySelector('meta[property="og:url"]')?.content || 'Not set'}
+og:image: ${document.querySelector('meta[property="og:image"]')?.content || 'Not set'}`;
+            
+            // Display Twitter Card tags
+            const twitterDisplay = document.getElementById('twitter-tags-display');
+            twitterDisplay.textContent = `twitter:card: ${document.querySelector('meta[name="twitter:card"]')?.content || 'Not set'}
+twitter:title: ${document.querySelector('meta[name="twitter:title"]')?.content || 'Not set'}
+twitter:description: ${document.querySelector('meta[name="twitter:description"]')?.content || 'Not set'}
+twitter:image: ${document.querySelector('meta[name="twitter:image"]')?.content || 'Not set'}`;
+            
+            // Display structured data
+            const structuredDisplay = document.getElementById('structured-data-display');
+            if (status.structuredData) {
+                try {
+                    const formatted = JSON.stringify(JSON.parse(status.structuredData), null, 2);
+                    structuredDisplay.textContent = formatted;
+                } catch (error) {
+                    structuredDisplay.textContent = 'Error parsing structured data: ' + error.message;
+                }
+            } else {
+                structuredDisplay.textContent = 'No structured data found';
+            }
+        }
+
+        function addTestResult(message, type) {
+            const resultsDiv = document.getElementById('test-results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result test-${type}`;
+            resultDiv.textContent = message;
+            resultsDiv.appendChild(resultDiv);
+        }
+
+        function clearTestResults() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = '<div class="test-result test-info">Running tests...</div>';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('SEO test page loaded');
+            
+            // Check if SEO Manager is available
+            if (window.SEOManager) {
+                addTestResult('✓ SEO Manager loaded successfully', 'pass');
+            } else {
+                addTestResult('✗ SEO Manager not available', 'fail');
+            }
+        });
+    </script>
+</body>
+</html>

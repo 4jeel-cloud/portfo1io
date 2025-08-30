@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test - Fixed Version</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Quick test styles */
+        .test-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #4ade80;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 10000;
+        }
+        
+        .test-error {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div id="test-status" class="test-status">Testing...</div>
+    
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="nav-title">Portfolio</div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle">
+                <span class="theme-toggle-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="section hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Professional Portfolio</h1>
+                    <p class="hero-subtitle">Cloud Engineer & Cybersecurity Professional</p>
+                    <div class="hero-contact">
+                        <a href="mailto:contact@example.com" class="contact-link">
+                            <span>📧</span> Email
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>💻</span> GitHub
+                        </a>
+                    </div>
+                </div>
+                <button class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="headshot project-image-fallback">
+                            <div class="fallback-icon">👤</div>
+                            <div class="fallback-text">Professional Photo</div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p class="summary-paragraph">
+                            Experienced professional specializing in <span class="keyword-highlight">cloud infrastructure</span>, 
+                            <span class="keyword-highlight">cybersecurity</span>, and <span class="keyword-highlight">API development</span>.
+                        </p>
+                        <p class="summary-paragraph">
+                            Passionate about building secure, scalable solutions that drive business success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="aws">AWS</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="security">Security</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <article class="project-card" data-technologies="aws,python,security">
+                        <div class="project-image-container">
+                            <div class="project-image project-image-fallback">
+                                <div class="fallback-icon">🔒</div>
+                                <div class="fallback-text">Security Platform</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Cloud Security Platform</h3>
+                            <p class="project-description">
+                                Comprehensive security monitoring and threat detection system built on AWS.
+                            </p>
+                            <div class="project-tools">
+                                <span class="tool-tag">AWS</span>
+                                <span class="tool-tag">Python</span>
+                                <span class="tool-tag">Docker</span>
+                                <span class="tool-tag">Security</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="project-card" data-technologies="python,api">
+                        <div class="project-image-container">
+                            <div class="project-image project-image-fallback">
+                                <div class="fallback-icon">🚀</div>
+                                <div class="fallback-text">API Gateway</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">API Management Platform</h3>
+                            <p class="project-description">
+                                Scalable API gateway with authentication, rate limiting, and monitoring.
+                            </p>
+                            <div class="project-tools">
+                                <span class="tool-tag">Python</span>
+                                <span class="tool-tag">FastAPI</span>
+                                <span class="tool-tag">Redis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Documentation</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p class="contact-message">Ready to collaborate on your next project?</p>
+                    <div class="contact-links">
+                        <a href="mailto:contact@example.com" class="contact-link">
+                            <span>📧</span> Send Email
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>💼</span> Connect on LinkedIn
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>💻</span> View GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Test the fixes
+        document.addEventListener('DOMContentLoaded', () => {
+            const status = document.getElementById('test-status');
+            let errors = [];
+            
+            try {
+                // Test 1: CSS loaded
+                const computedStyle = getComputedStyle(document.body);
+                if (!computedStyle.fontFamily) {
+                    errors.push('CSS not loaded properly');
+                }
+                
+                // Test 2: Theme toggle
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = document.documentElement.getAttribute('data-theme');
+                        if (currentTheme === 'dark') {
+                            document.documentElement.removeAttribute('data-theme');
+                            themeToggle.querySelector('.theme-toggle-icon').textContent = '🌙';
+                        } else {
+                            document.documentElement.setAttribute('data-theme', 'dark');
+                            themeToggle.querySelector('.theme-toggle-icon').textContent = '☀️';
+                        }
+                    });
+                }
+                
+                // Test 3: Project filters
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const projectCards = document.querySelectorAll('.project-card');
+                
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const filter = button.getAttribute('data-filter');
+                        
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        projectCards.forEach(card => {
+                            const technologies = card.getAttribute('data-technologies');
+                            
+                            if (filter === 'all' || technologies.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+                
+                // Test 4: Navigation
+                const navToggle = document.getElementById('nav-toggle');
+                const navMenu = document.getElementById('nav-menu');
+                
+                if (navToggle && navMenu) {
+                    navToggle.addEventListener('click', () => {
+                        navToggle.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                    });
+                }
+                
+                // Test 5: Smooth scrolling
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // Update status
+                if (errors.length === 0) {
+                    status.textContent = '✅ All Tests Passed!';
+                    status.className = 'test-status';
+                } else {
+                    status.textContent = `❌ ${errors.length} Error(s)`;
+                    status.className = 'test-status test-error';
+                    console.error('Test errors:', errors);
+                }
+                
+            } catch (error) {
+                status.textContent = '❌ JavaScript Error';
+                status.className = 'test-status test-error';
+                console.error('Test error:', error);
+            }
+            
+            // Hide status after 5 seconds
+            setTimeout(() => {
+                status.style.opacity = '0.3';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

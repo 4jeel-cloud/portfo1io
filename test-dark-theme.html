@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .theme-demo {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .demo-section {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Dark Theme Test</h1>
+        
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem;">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-toggle-icon">☀️</span>
+            </button>
+            <span>Click to toggle between light and dark themes</span>
+        </div>
+
+        <div class="theme-demo">
+            <div class="demo-section">
+                <h2>Typography</h2>
+                <p>This is primary text color: <span style="color: var(--color-text-primary)">Primary Text</span></p>
+                <p>This is secondary text color: <span style="color: var(--color-text-secondary)">Secondary Text</span></p>
+                <p>This is muted text color: <span style="color: var(--color-text-muted)">Muted Text</span></p>
+                <p>This is accent color: <span style="color: var(--color-accent)">Accent Color</span></p>
+            </div>
+
+            <div class="demo-section">
+                <h2>Card Component</h2>
+                <div class="card" style="padding: 1rem; margin-top: 1rem;">
+                    <h3>Sample Card</h3>
+                    <p>This is a card component with dark theme styling.</p>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2>Contact Link</h2>
+                <a href="#" class="contact-link">Sample Contact Link</a>
+            </div>
+
+            <div class="demo-section">
+                <h2>Background Colors</h2>
+                <p>Background: <span style="background-color: var(--color-background); padding: 0.5rem; border-radius: 4px;">var(--color-background)</span></p>
+                <p>Surface: <span style="background-color: var(--color-surface); padding: 0.5rem; border-radius: 4px;">var(--color-surface)</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple theme toggle for testing
+        class ThemeTest {
+            constructor() {
+                this.currentTheme = 'dark';
+                this.initializeThemeToggle();
+            }
+
+            initializeThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (!themeToggle) return;
+
+                this.updateThemeToggleIcon(themeToggle);
+
+                themeToggle.addEventListener('click', () => {
+                    this.toggleTheme();
+                });
+            }
+
+            toggleTheme() {
+                const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.setTheme(newTheme);
+            }
+
+            setTheme(theme) {
+                this.currentTheme = theme;
+                
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+                
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    this.updateThemeToggleIcon(themeToggle);
+                }
+            }
+
+            updateThemeToggleIcon(toggleButton) {
+                const icon = toggleButton.querySelector('.theme-toggle-icon');
+                if (!icon) return;
+
+                if (this.currentTheme === 'dark') {
+                    icon.textContent = '☀️';
+                    toggleButton.setAttribute('aria-label', 'Switch to light mode');
+                } else {
+                    icon.textContent = '🌙';
+                    toggleButton.setAttribute('aria-label', 'Switch to dark mode');
+                }
+            }
+        }
+
+        // Initialize theme test
+        new ThemeTest();
+    </script>
+</body>
+</html>

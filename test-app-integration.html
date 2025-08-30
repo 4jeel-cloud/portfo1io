@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Integration Tests - Portfolio</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        .test-header {
+            background: var(--color-gray-900);
+            color: var(--color-gray-100);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--color-accent);
+        }
+        
+        .test-controls {
+            background: var(--color-gray-800);
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--color-gray-700);
+        }
+        
+        .test-button {
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .test-button:hover {
+            background: #e55a00;
+        }
+        
+        .test-button:disabled {
+            background: var(--color-gray-600);
+            cursor: not-allowed;
+        }
+        
+        .test-output {
+            background: var(--color-gray-900);
+            color: var(--color-gray-100);
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            padding: 1rem;
+            height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            border: 1px solid var(--color-gray-700);
+            margin: 1rem;
+        }
+        
+        .test-status {
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .test-status.running {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .test-status.passed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .test-status.failed {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .portfolio-container {
+            margin-top: 2rem;
+            border-top: 2px solid var(--color-gray-700);
+        }
+        
+        .section {
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Test Header -->
+    <div class="test-header">
+        <h1>Portfolio App Integration Tests</h1>
+        <p>Comprehensive testing of the main App component and all integrations</p>
+    </div>
+    
+    <!-- Test Controls -->
+    <div class="test-controls">
+        <button id="run-tests" class="test-button">Run Integration Tests</button>
+        <button id="run-manual-tests" class="test-button">Run Manual Tests</button>
+        <button id="clear-output" class="test-button">Clear Output</button>
+        <button id="export-results" class="test-button" disabled>Export Results</button>
+    </div>
+    
+    <!-- Test Status -->
+    <div id="test-status" class="test-status">
+        Ready to run tests
+    </div>
+    
+    <!-- Test Output -->
+    <div id="test-output" class="test-output">
+Waiting for tests to start...
+
+Available Test Suites:
+- App Initialization Tests
+- Component Registration Tests  
+- Data Management Tests
+- Smooth Scrolling Tests
+- Section Integration Tests
+- Error Handling Tests
+- Public API Tests
+- Event System Tests
+
+Click "Run Integration Tests" to begin automated testing.
+    </div>
+    
+    <!-- Portfolio Container for Testing -->
+    <div class="portfolio-container">
+        <!-- Navigation Header -->
+        <header class="header" id="header" role="banner">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <h1 class="nav-title">Portfolio</h1>
+                </div>
+                <ul class="nav-menu" id="nav-menu" role="menubar" aria-label="Main menu">
+                    <li class="nav-item" role="none"><a href="#hero" class="nav-link" role="menuitem" aria-current="false">Home</a></li>
+                    <li class="nav-item" role="none"><a href="#about" class="nav-link" role="menuitem" aria-current="false">About</a></li>
+                    <li class="nav-item" role="none"><a href="#summary" class="nav-link" role="menuitem" aria-current="false">Summary</a></li>
+                    <li class="nav-item" role="none"><a href="#experience" class="nav-link" role="menuitem" aria-current="false">Experience</a></li>
+                    <li class="nav-item" role="none"><a href="#projects" class="nav-link" role="menuitem" aria-current="false">Projects</a></li>
+                    <li class="nav-item" role="none"><a href="#skills" class="nav-link" role="menuitem" aria-current="false">Skills</a></li>
+                    <li class="nav-item" role="none"><a href="#contact" class="nav-link" role="menuitem" aria-current="false">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle between light and dark theme" aria-pressed="true">
+                    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
+                    <span class="nav-toggle-line" aria-hidden="true"></span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main" id="main-content" role="main">
+            <!-- Hero Section -->
+            <section class="section hero" id="hero" aria-labelledby="hero-title">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title" id="hero-title">Loading...</h1>
+                        <p class="hero-subtitle" id="hero-subtitle">Loading professional information...</p>
+                        <div class="hero-contact" id="hero-contact" role="list" aria-label="Contact information">
+                            <!-- Contact links will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="section about" id="about" aria-labelledby="about-title">
+                <div class="container">
+                    <h2 class="section-title" id="about-title">About Me</h2>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img id="about-headshot" src="" alt="" class="headshot" loading="lazy">
+                        </div>
+                        <div class="about-text" role="region" aria-label="Personal biography">
+                            <p id="about-bio">Loading biography...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Section -->
+            <section class="section summary" id="summary" aria-labelledby="summary-title">
+                <div class="container">
+                    <h2 class="section-title" id="summary-title">Professional Summary</h2>
+                    <div class="summary-content" role="region" aria-label="Professional summary and key strengths">
+                        <p id="summary-text">Loading professional summary...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="section experience" id="experience" aria-labelledby="experience-title">
+                <div class="container">
+                    <h2 class="section-title" id="experience-title">Professional Experience</h2>
+                    <div class="timeline" id="experience-timeline" role="region" aria-label="Work experience timeline" aria-live="polite">
+                        <p>Loading work experience...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section projects" id="projects" aria-labelledby="projects-title">
+                <div class="container">
+                    <h2 class="section-title" id="projects-title">Featured Projects</h2>
+                    <div class="projects-grid" id="projects-grid" role="region" aria-label="Portfolio projects" aria-live="polite">
+                        <p>Loading projects...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section skills" id="skills" aria-labelledby="skills-title">
+                <div class="container">
+                    <h2 class="section-title" id="skills-title">Technical Skills & Expertise</h2>
+                    <div class="skills-categories" id="skills-categories" role="region" aria-label="Technical skills and expertise" aria-live="polite">
+                        <p>Loading skills...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section contact" id="contact" aria-labelledby="contact-title">
+                <div class="container">
+                    <h2 class="section-title" id="contact-title">Get In Touch</h2>
+                    <div class="contact-content" role="region" aria-label="Contact information and links">
+                        <p class="contact-message">Thank you for visiting my portfolio!</p>
+                        <div class="contact-links" id="contact-links" role="list" aria-label="Contact methods">
+                            <p>Loading contact information...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/performance.js"></script>
+    <script src="js/critical-css.js"></script>
+    <script src="js/types.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.test.js"></script>
+    
+    <script>
+        let testResults = null;
+        let isTestRunning = false;
+        
+        // Test control functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const runTestsBtn = document.getElementById('run-tests');
+            const runManualBtn = document.getElementById('run-manual-tests');
+            const clearOutputBtn = document.getElementById('clear-output');
+            const exportResultsBtn = document.getElementById('export-results');
+            const testOutput = document.getElementById('test-output');
+            const testStatus = document.getElementById('test-status');
+            
+            // Capture console output for display
+            const originalConsoleLog = console.log;
+            const originalConsoleError = console.error;
+            const originalConsoleWarn = console.warn;
+            
+            function logToOutput(message, type = 'log') {
+                const timestamp = new Date().toLocaleTimeString();
+                const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : 'ℹ️';
+                testOutput.textContent += `[${timestamp}] ${prefix} ${message}\n`;
+                testOutput.scrollTop = testOutput.scrollHeight;
+            }
+            
+            console.log = (...args) => {
+                originalConsoleLog.apply(console, args);
+                logToOutput(args.join(' '));
+            };
+            
+            console.error = (...args) => {
+                originalConsoleError.apply(console, args);
+                logToOutput(args.join(' '), 'error');
+            };
+            
+            console.warn = (...args) => {
+                originalConsoleWarn.apply(console, args);
+                logToOutput(args.join(' '), 'warn');
+            };
+            
+            // Run automated tests
+            runTestsBtn.addEventListener('click', async () => {
+                if (isTestRunning) return;
+                
+                isTestRunning = true;
+                runTestsBtn.disabled = true;
+                testStatus.className = 'test-status running';
+                testStatus.textContent = 'Running integration tests...';
+                
+                try {
+                    testOutput.textContent = '';
+                    logToOutput('Starting automated integration tests...');
+                    
+                    const testSuite = new AppIntegrationTests();
+                    testResults = await testSuite.runAllTests();
+                    
+                    // Update status based on results
+                    if (testResults.failed === 0) {
+                        testStatus.className = 'test-status passed';
+                        testStatus.textContent = `All tests passed! (${testResults.passed}/${testResults.total})`;
+                    } else {
+                        testStatus.className = 'test-status failed';
+                        testStatus.textContent = `${testResults.failed} test(s) failed (${testResults.passed}/${testResults.total} passed)`;
+                    }
+                    
+                    exportResultsBtn.disabled = false;
+                    
+                } catch (error) {
+                    testStatus.className = 'test-status failed';
+                    testStatus.textContent = 'Test execution failed';
+                    logToOutput(`Test execution error: ${error.message}`, 'error');
+                } finally {
+                    isTestRunning = false;
+                    runTestsBtn.disabled = false;
+                }
+            });
+            
+            // Run manual tests
+            runManualBtn.addEventListener('click', () => {
+                testOutput.textContent = '';
+                logToOutput('Manual testing mode activated');
+                logToOutput('Available commands:');
+                logToOutput('- window.portfolioApp.getAllComponents()');
+                logToOutput('- window.portfolioApp.refreshComponent("hero")');
+                logToOutput('- window.portfolioApp.refreshAllComponents()');
+                logToOutput('- window.scrollToSection("about")');
+                logToOutput('Open browser console to run manual tests');
+            });
+            
+            // Clear output
+            clearOutputBtn.addEventListener('click', () => {
+                testOutput.textContent = 'Output cleared. Ready for new tests.\n';
+                testStatus.className = 'test-status';
+                testStatus.textContent = 'Ready to run tests';
+            });
+            
+            // Export results
+            exportResultsBtn.addEventListener('click', () => {
+                if (!testResults) return;
+                
+                const exportData = {
+                    timestamp: new Date().toISOString(),
+                    summary: {
+                        total: testResults.total,
+                        passed: testResults.passed,
+                        failed: testResults.failed,
+                        passRate: testResults.passRate
+                    },
+                    results: testResults.results,
+                    environment: {
+                        userAgent: navigator.userAgent,
+                        url: window.location.href,
+                        viewport: `${window.innerWidth}x${window.innerHeight}`
+                    }
+                };
+                
+                const blob = new Blob([JSON.stringify(exportData, null, 2)], {
+                    type: 'application/json'
+                });
+                
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `portfolio-app-test-results-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                logToOutput('Test results exported successfully');
+            });
+        });
+    </script>
+</body>
+</html>

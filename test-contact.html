@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Section Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--color-gray-50);
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--color-secondary);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .test-header {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: var(--space-6);
+            text-align: center;
+        }
+        
+        .test-section {
+            padding: var(--space-8);
+        }
+        
+        .test-controls {
+            background-color: var(--color-gray-50);
+            padding: var(--space-4);
+            border-radius: 8px;
+            margin-bottom: var(--space-6);
+        }
+        
+        .test-btn {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            border: none;
+            padding: var(--space-2) var(--space-4);
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: var(--space-2);
+            font-weight: 500;
+        }
+        
+        .test-btn:hover {
+            background-color: #ea580c;
+        }
+        
+        .status {
+            margin-top: var(--space-4);
+            padding: var(--space-3);
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .status.success {
+            background-color: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .status.error {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        
+        .contact-preview {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Contact Section Component Test</h1>
+            <p>Testing the contact section with various configurations and interactions</p>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-controls">
+                <h3>Test Controls</h3>
+                <button class="test-btn" onclick="testContactSection()">Load Contact Section</button>
+                <button class="test-btn" onclick="testContactLinks()">Test Contact Links</button>
+                <button class="test-btn" onclick="testAccessibility()">Test Accessibility</button>
+                <button class="test-btn" onclick="testAnimations()">Test Animations</button>
+                <button class="test-btn" onclick="testResponsive()">Test Responsive</button>
+                <div id="test-status" class="status" style="display: none;"></div>
+            </div>
+            
+            <div class="contact-preview">
+                <!-- Contact Section -->
+                <section class="section contact" id="contact">
+                    <div class="container">
+                        <h2 class="section-title">Contact</h2>
+                        <div class="contact-content">
+                            <p class="contact-message">Loading contact information...</p>
+                            <div class="contact-links" id="contact-links">
+                                <!-- Contact links will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/types.js"></script>
+    <script src="js/data.js"></script>
+    
+    <script>
+        // Test data for contact section
+        const testPortfolioData = {
+            personal: {
+                name: "Test User",
+                title: "Cloud Engineer & Cybersecurity Professional",
+                contact: {
+                    email: "test@example.com",
+                    linkedin: "https://linkedin.com/in/testuser",
+                    github: "https://github.com/testuser",
+                    behance: "https://behance.net/testuser"
+                }
+            }
+        };
+
+        // Mock portfolio data service
+        window.portfolioData = {
+            data: testPortfolioData,
+            getPersonalInfo: function() {
+                return this.data.personal;
+            },
+            loadData: function() {
+                return Promise.resolve(this.data);
+            }
+        };
+
+        // Contact section functionality (extracted from main.js)
+        class ContactTester {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                console.log('Contact tester initialized');
+            }
+
+            populateContactSection() {
+                const personal = window.portfolioData.getPersonalInfo();
+                const contactSection = document.getElementById('contact');
+                
+                if (!contactSection) return;
+                
+                // Create enhanced contact component
+                this.createContactComponent(contactSection, personal);
+            }
+
+            createContactComponent(container, personal) {
+                const contactHTML = `
+                  <div class="container">
+                    <h2 class="section-title">Let's Connect</h2>
+                    
+                    <div class="contact-content">
+                      <p class="contact-message">Thank you for visiting my portfolio!</p>
+                      <p class="contact-subtitle">
+                        I'm always interested in discussing new opportunities, 
+                        collaborating on exciting projects, or simply connecting with fellow professionals.
+                      </p>
+                      
+                      <div class="contact-links" id="contact-links">
+                        ${this.createContactLinks(personal.contact)}
+                      </div>
+                      
+                      <div class="contact-cta">
+                        <h3 class="cta-title">Ready to work together?</h3>
+                        <p class="cta-text">
+                          Whether you're looking for expertise in <span class="cta-highlight">cloud engineering</span>, 
+                          <span class="cta-highlight">cybersecurity</span>, or <span class="cta-highlight">API development</span>, 
+                          I'd love to hear about your project and explore how we can create something amazing together.
+                        </p>
+                      </div>
+                      
+                      <div class="contact-footer">
+                        <p>© ${new Date().getFullYear()} ${personal.name || 'Professional Portfolio'}. Built with passion for technology and innovation.</p>
+                      </div>
+                    </div>
+                  </div>
+                `;
+                
+                container.innerHTML = contactHTML;
+                
+                // Initialize contact interactions
+                this.initializeContactInteractions();
+            }
+
+            createContactLinks(contact) {
+                const links = [];
+                
+                if (contact.email) {
+                  links.push(`
+                    <a href="mailto:${contact.email}" 
+                       class="contact-link contact-email contact-link-animate" 
+                       aria-label="Send email to ${contact.email}"
+                       data-contact-type="email">
+                      <span class="contact-icon">📧</span>
+                      <span class="contact-text">Email Me</span>
+                    </a>
+                  `);
+                }
+                
+                if (contact.linkedin) {
+                  links.push(`
+                    <a href="${contact.linkedin}" 
+                       class="contact-link contact-linkedin contact-link-animate" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Visit LinkedIn profile"
+                       data-contact-type="linkedin">
+                      <span class="contact-icon">💼</span>
+                      <span class="contact-text">LinkedIn</span>
+                    </a>
+                  `);
+                }
+                
+                if (contact.github) {
+                  links.push(`
+                    <a href="${contact.github}" 
+                       class="contact-link contact-github contact-link-animate" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Visit GitHub profile"
+                       data-contact-type="github">
+                      <span class="contact-icon">💻</span>
+                      <span class="contact-text">GitHub</span>
+                    </a>
+                  `);
+                }
+                
+                if (contact.behance) {
+                  links.push(`
+                    <a href="${contact.behance}" 
+                       class="contact-link contact-behance contact-link-animate" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Visit Behance portfolio"
+                       data-contact-type="behance">
+                      <span class="contact-icon">🎨</span>
+                      <span class="contact-text">Behance</span>
+                    </a>
+                  `);
+                }
+                
+                return links.join('');
+            }
+
+            initializeContactInteractions() {
+                const contactLinks = document.querySelectorAll('.contact-link');
+                
+                contactLinks.forEach(link => {
+                  // Enhanced hover effects
+                  link.addEventListener('mouseenter', () => {
+                    this.handleContactLinkHover(link, true);
+                  });
+                  
+                  link.addEventListener('mouseleave', () => {
+                    this.handleContactLinkHover(link, false);
+                  });
+                  
+                  // Click tracking for analytics (if needed)
+                  link.addEventListener('click', (e) => {
+                    const contactType = link.getAttribute('data-contact-type');
+                    this.trackContactInteraction(contactType);
+                  });
+                  
+                  // Keyboard accessibility
+                  link.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      link.click();
+                    }
+                  });
+                });
+                
+                // Initialize scroll animations for contact section
+                this.initializeContactAnimations();
+            }
+
+            handleContactLinkHover(link, isHovering) {
+                const icon = link.querySelector('.contact-icon');
+                const text = link.querySelector('.contact-text');
+                
+                if (isHovering) {
+                  // Add hover state classes for additional effects
+                  link.classList.add('hovered');
+                  
+                  // Animate icon and text
+                  if (icon) {
+                    icon.style.transform = 'scale(1.2) rotate(5deg)';
+                  }
+                  if (text) {
+                    text.style.transform = 'translateX(2px)';
+                  }
+                } else {
+                  // Remove hover state
+                  link.classList.remove('hovered');
+                  
+                  // Reset animations
+                  if (icon) {
+                    icon.style.transform = '';
+                  }
+                  if (text) {
+                    text.style.transform = '';
+                  }
+                }
+            }
+
+            trackContactInteraction(contactType) {
+                // Log interaction for analytics (can be extended with actual analytics)
+                console.log(`Contact interaction: ${contactType}`);
+                
+                // Show status for testing
+                this.showStatus(`Contact interaction tracked: ${contactType}`, 'success');
+            }
+
+            initializeContactAnimations() {
+                // Create intersection observer for contact section animations
+                const contactObserver = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                      // Animate contact elements with stagger
+                      this.animateContactElements();
+                      contactObserver.unobserve(entry.target);
+                    }
+                  });
+                }, {
+                  threshold: 0.3,
+                  rootMargin: '50px'
+                });
+                
+                // Observe contact section
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactObserver.observe(contactSection);
+                }
+            }
+
+            animateContactElements() {
+                // Animate contact links with stagger
+                const contactLinks = document.querySelectorAll('.contact-link');
+                const contactMessage = document.querySelector('.contact-message');
+                const contactSubtitle = document.querySelector('.contact-subtitle');
+                const contactCta = document.querySelector('.contact-cta');
+                
+                // Animate message and subtitle first
+                if (contactMessage) {
+                  contactMessage.style.opacity = '0';
+                  contactMessage.style.transform = 'translateY(30px)';
+                  setTimeout(() => {
+                    contactMessage.style.transition = 'all 0.6s ease';
+                    contactMessage.style.opacity = '1';
+                    contactMessage.style.transform = 'translateY(0)';
+                  }, 200);
+                }
+                
+                if (contactSubtitle) {
+                  contactSubtitle.style.opacity = '0';
+                  contactSubtitle.style.transform = 'translateY(30px)';
+                  setTimeout(() => {
+                    contactSubtitle.style.transition = 'all 0.6s ease';
+                    contactSubtitle.style.opacity = '1';
+                    contactSubtitle.style.transform = 'translateY(0)';
+                  }, 400);
+                }
+                
+                // Animate contact links with stagger
+                contactLinks.forEach((link, index) => {
+                  link.style.opacity = '0';
+                  link.style.transform = 'translateY(40px) scale(0.9)';
+                  
+                  setTimeout(() => {
+                    link.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0) scale(1)';
+                  }, 600 + (index * 150));
+                });
+                
+                // Animate CTA section last
+                if (contactCta) {
+                  contactCta.style.opacity = '0';
+                  contactCta.style.transform = 'translateY(30px)';
+                  setTimeout(() => {
+                    contactCta.style.transition = 'all 0.6s ease';
+                    contactCta.style.opacity = '1';
+                    contactCta.style.transform = 'translateY(0)';
+                  }, 1200);
+                }
+            }
+
+            showStatus(message, type) {
+                const statusElement = document.getElementById('test-status');
+                statusElement.textContent = message;
+                statusElement.className = `status ${type}`;
+                statusElement.style.display = 'block';
+                
+                setTimeout(() => {
+                    statusElement.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Initialize contact tester
+        let contactTester;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            contactTester = new ContactTester();
+        });
+
+        // Test functions
+        function testContactSection() {
+            try {
+                contactTester.populateContactSection();
+                contactTester.showStatus('Contact section loaded successfully!', 'success');
+            } catch (error) {
+                contactTester.showStatus(`Error loading contact section: ${error.message}`, 'error');
+                console.error('Contact section test error:', error);
+            }
+        }
+
+        function testContactLinks() {
+            try {
+                const contactLinks = document.querySelectorAll('.contact-link');
+                if (contactLinks.length === 0) {
+                    throw new Error('No contact links found. Load contact section first.');
+                }
+                
+                let linkCount = 0;
+                contactLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    const type = link.getAttribute('data-contact-type');
+                    if (href && type) {
+                        linkCount++;
+                    }
+                });
+                
+                contactTester.showStatus(`Found ${linkCount} functional contact links`, 'success');
+            } catch (error) {
+                contactTester.showStatus(`Error testing contact links: ${error.message}`, 'error');
+                console.error('Contact links test error:', error);
+            }
+        }
+
+        function testAccessibility() {
+            try {
+                const contactLinks = document.querySelectorAll('.contact-link');
+                if (contactLinks.length === 0) {
+                    throw new Error('No contact links found. Load contact section first.');
+                }
+                
+                let accessibilityIssues = [];
+                
+                contactLinks.forEach((link, index) => {
+                    // Check for aria-label
+                    if (!link.getAttribute('aria-label')) {
+                        accessibilityIssues.push(`Link ${index + 1}: Missing aria-label`);
+                    }
+                    
+                    // Check for proper href
+                    if (!link.getAttribute('href')) {
+                        accessibilityIssues.push(`Link ${index + 1}: Missing href attribute`);
+                    }
+                    
+                    // Check for external link attributes
+                    if (link.getAttribute('target') === '_blank' && !link.getAttribute('rel')) {
+                        accessibilityIssues.push(`Link ${index + 1}: External link missing rel attribute`);
+                    }
+                });
+                
+                if (accessibilityIssues.length === 0) {
+                    contactTester.showStatus('All accessibility checks passed!', 'success');
+                } else {
+                    contactTester.showStatus(`Accessibility issues found: ${accessibilityIssues.join(', ')}`, 'error');
+                }
+            } catch (error) {
+                contactTester.showStatus(`Error testing accessibility: ${error.message}`, 'error');
+                console.error('Accessibility test error:', error);
+            }
+        }
+
+        function testAnimations() {
+            try {
+                const contactSection = document.getElementById('contact');
+                if (!contactSection) {
+                    throw new Error('Contact section not found');
+                }
+                
+                // Trigger animations manually
+                contactTester.animateContactElements();
+                contactTester.showStatus('Animation test triggered successfully!', 'success');
+            } catch (error) {
+                contactTester.showStatus(`Error testing animations: ${error.message}`, 'error');
+                console.error('Animation test error:', error);
+            }
+        }
+
+        function testResponsive() {
+            try {
+                const contactSection = document.getElementById('contact');
+                if (!contactSection) {
+                    throw new Error('Contact section not found');
+                }
+                
+                // Test different viewport sizes
+                const originalWidth = window.innerWidth;
+                
+                // Simulate mobile viewport
+                document.body.style.width = '375px';
+                setTimeout(() => {
+                    // Reset to original
+                    document.body.style.width = '';
+                    contactTester.showStatus('Responsive design test completed!', 'success');
+                }, 1000);
+                
+            } catch (error) {
+                contactTester.showStatus(`Error testing responsive design: ${error.message}`, 'error');
+                console.error('Responsive test error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

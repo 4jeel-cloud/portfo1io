@@ -1,0 +1,292 @@
+{
+  "personal": {
+    "name": "Muhammed Ajeel",
+    "title": "Cloud Engineer & Cybersecurity Professional",
+    "bio": "MCA student (Cloud & DevOps, expected 2027) with hands-on experience in AWS cloud, IAM, VPC, and cybersecurity (VAPT, API Security). Skilled in Python, PHP, and cloud infrastructure projects. Passionate about designing secure, scalable systems and protecting digital assets in evolving environments.",
+    "summary": "Cloud Engineer & Cybersecurity Enthusiast specializing in AWS cloud infrastructure, VAPT, and API Security. Dedicated to creating secure, scalable solutions while maintaining the highest security standards. Strong background in Python development, cloud security, and penetration testing.",
+    "contact": {
+      "email": "muhammedajeel11@gmail.com",
+      "phone": "+91 8075364425",
+      "linkedin": "https://linkedin.com/in/muhammed-ajeel",
+      "github": "https://github.com/4jeel-cloud"
+    },
+    "headshot": "images/profile/headshot.svg"
+  },
+  "education": [
+    {
+      "id": "edu1",
+      "degree": "Master of Computer Applications (MCA)",
+      "specialization": "Cloud & DevOps",
+      "institution": "Jain (Deemed-to-be University)",
+      "duration": "Jul 2025 – Jul 2027 (Expected)",
+      "status": "In Progress"
+    },
+    {
+      "id": "edu2",
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "specialization": "Cloud Computing",
+      "institution": "Krupanidhi School of Management, Bengaluru North University",
+      "duration": "Sep 2022 – May 2025",
+      "cgpa": "7.7/10",
+      "status": "Completed"
+    },
+    {
+      "id": "edu3",
+      "degree": "Higher Secondary",
+      "specialization": "Commerce",
+      "institution": "WMO English School, India",
+      "duration": "2020 – 2022",
+      "status": "Completed"
+    },
+    {
+      "id": "edu4",
+      "degree": "Secondary School",
+      "specialization": "",
+      "institution": "WMO Green Mount School, India",
+      "duration": "Completed",
+      "status": "Completed"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert1",
+      "name": "AWS Networking Basics v01.01.00s",
+      "issuer": "Amazon Web Services",
+      "year": "Aug 2025",
+      "link": ""
+    },
+    {
+      "id": "cert2",
+      "name": "Networking Basics",
+      "issuer": "Cisco",
+      "year": "Aug 2025",
+      "link": ""
+    },
+    {
+      "id": "cert3",
+      "name": "API Security Fundamentals '25",
+      "issuer": "APIsec University",
+      "year": "Jul 2025",
+      "link": ""
+    },
+    {
+      "id": "cert4",
+      "name": "Introduction to Cybersecurity",
+      "issuer": "Cisco",
+      "year": "Jun 2025",
+      "link": ""
+    },
+    {
+      "id": "cert5",
+      "name": "Python for Software Engineering",
+      "issuer": "Chegg India",
+      "year": "Oct 2024",
+      "link": ""
+    },
+    {
+      "id": "cert6",
+      "name": "AWS Cloud Computing",
+      "issuer": "KEONICS",
+      "year": "Aug 2024",
+      "link": ""
+    },
+    {
+      "id": "cert7",
+      "name": "Cloud Foundations – Advanced",
+      "issuer": "Great Learning",
+      "year": "Aug 2024",
+      "link": ""
+    },
+    {
+      "id": "cert8",
+      "name": "Cybersecurity Job Simulation",
+      "issuer": "Mastercard (Forage)",
+      "year": "Jul 2024",
+      "link": ""
+    },
+    {
+      "id": "cert9",
+      "name": "Cloud Platform Job Simulation",
+      "issuer": "Verizon (Forage)",
+      "year": "Jul 2024",
+      "link": ""
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp1",
+      "company": "CyArt",
+      "title": "Cyber Security Intern (VAPT)",
+      "duration": "Jul 2025 – Present",
+      "achievements": [
+        "Conducted VAPT on web applications & networks",
+        "Delivered 15+ vulnerability reports and guided remediation",
+        "Simulated cyberattacks for proactive security hardening",
+        "Improved security posture through comprehensive testing"
+      ],
+      "technologies": ["Python", "Nmap", "Metasploit", "Burp Suite", "OWASP"]
+    },
+    {
+      "id": "exp2",
+      "company": "RISS Technologies, Calicut",
+      "title": "Python Developer Intern",
+      "duration": "Jan 2025",
+      "achievements": [
+        "Developed a face-recognition attendance system using Django & OpenCV",
+        "Improved tracking accuracy by 40% vs manual methods",
+        "Integrated MySQL database for secure storage & faster retrieval",
+        "Optimized UI & performance for better user experience"
+      ],
+      "technologies": ["Python", "Django", "OpenCV", "MySQL"]
+    },
+    {
+      "id": "exp3",
+      "company": "NovaNectar Services Pvt. Ltd",
+      "title": "Python Developer Intern",
+      "duration": "Sep 2024 – Oct 2024",
+      "achievements": [
+        "Built a modular Python calculator with advanced error handling",
+        "Added unit testing for improved reliability & debugging",
+        "Implemented clean code practices and documentation",
+        "Enhanced application stability through comprehensive testing"
+      ],
+      "technologies": ["Python", "Unit Testing", "Error Handling"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj1",
+      "title": "HR Management System (Final Year Project)",
+      "description": "Built a comprehensive web-based ATS with resume analysis, aptitude tests, job posting, and secure role-based dashboards using AI Resume Parser.",
+      "tools": ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "AI Resume Parser"],
+      "outcomes": [
+        "Reduced manual screening time by 60%",
+        "Automated resume parsing and analysis",
+        "Secure role-based dashboard system",
+        "Integrated aptitude testing functionality"
+      ],
+      "images": ["images/projects/hr-system.jpg"],
+      "links": [
+        { "name": "GitHub Repo", "url": "https://github.com/4jeel-cloud/hr-management" }
+      ]
+    },
+    {
+      "id": "proj2",
+      "title": "Build a Virtual Private Cloud (AWS VPC)",
+      "description": "Designed custom VPC with IP addressing & CIDR blocks. Configured public subnet with internet access for EC2 instances.",
+      "tools": ["AWS VPC", "EC2", "CIDR", "Subnets", "Internet Gateway"],
+      "outcomes": [
+        "Successfully designed custom VPC architecture",
+        "Configured secure public subnet access",
+        "Implemented proper IP addressing scheme"
+      ],
+      "images": ["images/projects/aws-vpc.jpg"],
+      "links": []
+    },
+    {
+      "id": "proj3",
+      "title": "Cloud Security with AWS IAM",
+      "description": "Launched & managed EC2 instances. Applied IAM roles, policies, users, and groups for fine-grained access. Verified setup by testing with new user login.",
+      "tools": ["AWS IAM", "EC2", "IAM Roles", "IAM Policies", "User Management"],
+      "outcomes": [
+        "Implemented fine-grained access control",
+        "Successfully managed EC2 instances",
+        "Verified security through user testing"
+      ],
+      "images": ["images/projects/iam-security.jpg"],
+      "links": []
+    },
+    {
+      "id": "proj4",
+      "title": "Host a Website on AWS S3",
+      "description": "Configured S3 bucket with ACLs, versioning, and public access. Deployed a static website with troubleshooting for access visibility.",
+      "tools": ["AWS S3", "ACLs", "Versioning", "Static Website Hosting"],
+      "outcomes": [
+        "Successfully deployed static website",
+        "Configured proper access controls",
+        "Implemented versioning for content management"
+      ],
+      "images": ["images/projects/s3-website.jpg"],
+      "links": []
+    },
+    {
+      "id": "proj5",
+      "title": "Banking Chatbot (Amazon Lex)",
+      "description": "Created a voice & text chatbot with greetings and fallback mechanism. Added custom slots for handling account types.",
+      "tools": ["Amazon Lex", "Voice Recognition", "Text Processing", "Custom Slots"],
+      "outcomes": [
+        "Built functional voice and text chatbot",
+        "Implemented intelligent fallback mechanisms",
+        "Created custom slots for account handling"
+      ],
+      "images": ["images/projects/lex-chatbot.jpg"],
+      "links": []
+    },
+    {
+      "id": "proj6",
+      "title": "VPC Traffic Flow & Network Security",
+      "description": "Configured route tables, internet gateway, network ACLs, and security groups. Implemented layered traffic security at subnet and resource levels.",
+      "tools": ["AWS VPC", "Route Tables", "Network ACLs", "Security Groups", "Internet Gateway"],
+      "outcomes": [
+        "Established secure network traffic flow",
+        "Implemented layered security architecture",
+        "Configured comprehensive network controls"
+      ],
+      "images": ["images/projects/vpc-security.jpg"],
+      "links": []
+    }
+  ],
+  "skills": [
+    {
+      "category": "Cloud & DevOps",
+      "skills": [
+        { "name": "AWS (EC2, VPC, S3, IAM, Lex)", "proficiency": "advanced" },
+        { "name": "Cloud Security", "proficiency": "advanced" },
+        { "name": "Infrastructure as Code", "proficiency": "intermediate" },
+        { "name": "DevOps Practices", "proficiency": "intermediate" }
+      ]
+    },
+    {
+      "category": "Cybersecurity",
+      "skills": [
+        { "name": "VAPT", "proficiency": "advanced" },
+        { "name": "API Security", "proficiency": "advanced" },
+        { "name": "Penetration Testing", "proficiency": "advanced" },
+        { "name": "Networking Fundamentals", "proficiency": "advanced" }
+      ]
+    },
+    {
+      "category": "Programming",
+      "skills": [
+        { "name": "Python", "proficiency": "expert" },
+        { "name": "PHP", "proficiency": "advanced" },
+        { "name": "MySQL", "proficiency": "advanced" },
+        { "name": "Java", "proficiency": "intermediate" },
+        { "name": "JavaScript", "proficiency": "intermediate" },
+        { "name": "Django", "proficiency": "advanced" },
+        { "name": "HTML", "proficiency": "advanced" },
+        { "name": "CSS", "proficiency": "advanced" }
+      ]
+    },
+    {
+      "category": "Security Tools",
+      "skills": [
+        { "name": "Nmap", "proficiency": "advanced" },
+        { "name": "Metasploit", "proficiency": "advanced" },
+        { "name": "Burp Suite", "proficiency": "advanced" },
+        { "name": "Wireshark", "proficiency": "intermediate" },
+        { "name": "Scapy", "proficiency": "intermediate" },
+        { "name": "PyShark", "proficiency": "intermediate" }
+      ]
+    },
+    {
+      "category": "Soft Skills",
+      "skills": [
+        { "name": "Problem-Solving", "proficiency": "expert" },
+        { "name": "Communication", "proficiency": "advanced" },
+        { "name": "Collaboration", "proficiency": "advanced" },
+        { "name": "GitHub", "proficiency": "advanced" }
+      ]
+    }
+  ]
+}

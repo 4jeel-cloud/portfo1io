@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Component Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            margin: 0;
+            padding: var(--space-8);
+            background-color: var(--color-gray-50);
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background-color: var(--color-secondary);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-title {
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--space-6);
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: var(--space-2);
+        }
+        
+        .test-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-6);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="typography-display" style="text-align: center; margin-bottom: var(--space-8);">
+            Summary Component Test
+        </h1>
+        
+        <!-- Test 1: Basic Summary Display -->
+        <div class="test-section">
+            <h2 class="test-title">Test 1: Basic Summary Display</h2>
+            <p class="test-description">Testing the basic summary section with keyword highlighting</p>
+            
+            <section class="section summary">
+                <div class="container">
+                    <h2 class="section-title">Summary</h2>
+                    <div class="summary-content">
+                        <div id="summary-text-test1"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Test 2: Multi-paragraph Summary -->
+        <div class="test-section">
+            <h2 class="test-title">Test 2: Multi-paragraph Summary</h2>
+            <p class="test-description">Testing summary with multiple paragraphs and various keywords</p>
+            
+            <section class="section summary">
+                <div class="container">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary-content">
+                        <div id="summary-text-test2"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Test 3: Responsive Behavior -->
+        <div class="test-section">
+            <h2 class="test-title">Test 3: Responsive Design</h2>
+            <p class="test-description">Testing responsive text sizing and spacing (resize window to test)</p>
+            
+            <section class="section summary">
+                <div class="container">
+                    <h2 class="section-title">Responsive Summary</h2>
+                    <div class="summary-content">
+                        <div id="summary-text-test3"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Test 4: Edge Cases -->
+        <div class="test-section">
+            <h2 class="test-title">Test 4: Edge Cases</h2>
+            <p class="test-description">Testing with no keywords, empty content, and special characters</p>
+            
+            <section class="section summary">
+                <div class="container">
+                    <h2 class="section-title">Edge Case Summary</h2>
+                    <div class="summary-content">
+                        <div id="summary-text-test4"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/types.js"></script>
+    <script src="js/data.js"></script>
+    
+    <script>
+        // Test data
+        const testData = {
+            test1: "Experienced professional specializing in Cloud, Cybersecurity, AI, and API development. Dedicated to creating innovative solutions that drive business success while maintaining the highest security standards.",
+            
+            test2: "Experienced professional specializing in Cloud, Cybersecurity, AI, and API development. Dedicated to creating innovative solutions that drive business success while maintaining the highest security standards.\n\nStrong background in infrastructure automation, threat analysis, and system optimization. Passionate about scalable solutions and emerging technologies in the cloud and security landscape.",
+            
+            test3: "Cloud engineer with expertise in Cybersecurity and AI technologies. Focused on API development and infrastructure automation for scalable, secure solutions.",
+            
+            test4: "Regular text without any special keywords. This should display normally without highlighting.\n\nEmpty paragraph test:\n\nSpecial characters: @#$%^&*()_+ and numbers 12345."
+        };
+        
+        // Mock portfolio app methods
+        class TestPortfolioApp {
+            formatSummaryWithKeywords(text) {
+                // Define technical keywords to highlight
+                const keywords = [
+                    'Cloud', 'Cybersecurity', 'AI', 'API', 'API development',
+                    'infrastructure', 'automation', 'security', 'scalable',
+                    'optimization', 'threat analysis', 'business success'
+                ];
+                
+                // Split text into paragraphs
+                const paragraphs = text.split('\n').filter(p => p.trim());
+                
+                // Process each paragraph
+                const formattedParagraphs = paragraphs.map(paragraph => {
+                    let formattedText = paragraph.trim();
+                    
+                    // Highlight keywords (case-insensitive)
+                    keywords.forEach(keyword => {
+                        const regex = new RegExp(`\\b(${keyword})\\b`, 'gi');
+                        formattedText = formattedText.replace(regex, '<span class="keyword-highlight">$1</span>');
+                    });
+                    
+                    return `<p class="summary-paragraph">${formattedText}</p>`;
+                });
+                
+                return formattedParagraphs.join('');
+            }
+            
+            populateTestSummary(elementId, text) {
+                const summaryElement = document.getElementById(elementId);
+                if (summaryElement) {
+                    const formattedSummary = this.formatSummaryWithKeywords(text);
+                    summaryElement.innerHTML = formattedSummary;
+                }
+            }
+        }
+        
+        // Initialize tests
+        document.addEventListener('DOMContentLoaded', () => {
+            const testApp = new TestPortfolioApp();
+            
+            // Populate test cases
+            testApp.populateTestSummary('summary-text-test1', testData.test1);
+            testApp.populateTestSummary('summary-text-test2', testData.test2);
+            testApp.populateTestSummary('summary-text-test3', testData.test3);
+            testApp.populateTestSummary('summary-text-test4', testData.test4);
+            
+            console.log('Summary component tests loaded successfully');
+        });
+    </script>
+</body>
+</html>

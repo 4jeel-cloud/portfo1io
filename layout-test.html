@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        .debug-section {
+            border: 2px solid red;
+            margin: 1rem 0;
+            padding: 1rem;
+        }
+        .debug-container {
+            border: 2px solid blue;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header debug-section">
+        <nav class="nav debug-container">
+            <div class="nav-brand">
+                <h1 class="nav-title">Test Portfolio</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle-icon">☀️</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section hero debug-section">
+            <div class="container debug-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Test Hero Title</h1>
+                    <p class="hero-subtitle">Test subtitle text</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section debug-section">
+            <div class="container debug-container">
+                <h2 class="section-title">Test Section</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Test Card</h3>
+                        <p class="card-text">This is a test card to check layout.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Build outputs
+dist/
+build/
+.vite/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Asset files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.otf
+
+# Configuration files that should maintain their format
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+*.log
+
+# Coverage
+coverage/
