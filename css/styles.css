@@ -27,21 +27,21 @@
 
 /* Dark Theme Colors */
 [data-theme="dark"] {
-  --color-background: #0a0a0a;
-  --color-surface: #1a1a1a;
+  --color-background: #000000;
+  --color-surface: #111111;
   --color-text-primary: #ffffff;
   --color-text-secondary: #d4d4d4;
   --color-text-muted: #a3a3a3;
-  --color-border: #404040;
-  --color-secondary: #0a0a0a;
+  --color-border: #333333;
+  --color-secondary: #000000;
   --color-dark: #ffffff;
 }
 
 :root {
-  /* Typography - Geometric & Condensed */
-  --font-family-display: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-  --font-family-base: 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  /* Typography - Pexel-style Modern Fonts */
+  --font-family-display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
   --font-size-display: 6rem;
   --font-size-h1: 4rem;
   --font-size-h2: 2.5rem;
@@ -66,8 +66,6 @@
   /* Layout */
   --container-max-width: 1200px;
   --header-height: 4rem;
-  --grid-unit: 24px;
-  --grid-columns: 12;
 
   /* Animations */
   --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -297,17 +295,11 @@ a:hover {
   margin-bottom: var(--space-6);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-gray-700) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-text-primary);
 }
 
 [data-theme="dark"] .hero-title {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-text-primary);
 }
 
 .hero-subtitle {
@@ -441,7 +433,7 @@ a:hover {
   transform: translateX(-50%);
   width: 4rem;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-text-primary);
 }
 
 /* Utility Classes */
@@ -919,11 +911,10 @@ erformance Optimization Styles */
 }
 
 .keyword-highlight {
-  background: linear-gradient(120deg, var(--color-accent) 0%, #ea580c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 600;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-text-primary);
 }
 
 /* Experience Timeline */
@@ -941,7 +932,7 @@ erformance Optimization Styles */
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-gray-300) 50%, var(--color-accent) 100%);
+  background: var(--color-text-primary);
   transform: translateX(-50%);
 }
 
@@ -977,7 +968,7 @@ erformance Optimization Styles */
   top: 24px;
   width: 20px;
   height: 20px;
-  background: var(--color-accent);
+  background: var(--color-text-primary);
   border-radius: 50%;
   border: 4px solid var(--color-background);
   z-index: 2;
@@ -1009,11 +1000,11 @@ erformance Optimization Styles */
   font-size: var(--font-size-h3);
   font-weight: 700;
   margin-bottom: var(--space-2);
-  color: var(--color-primary);
+  color: var(--color-text-primary);
 }
 
 .timeline-title {
-  color: var(--color-accent);
+  color: var(--color-text-secondary);
   font-weight: 600;
   font-size: var(--font-size-body-large);
   margin-bottom: var(--space-2);
@@ -1043,14 +1034,14 @@ erformance Optimization Styles */
   content: '▶';
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   font-size: 12px;
 }
 
 .timeline-achievements-toggle {
   background: none;
   border: none;
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   font-weight: 600;
   font-size: var(--font-size-small);
   cursor: pointer;
@@ -1145,8 +1136,8 @@ erformance Optimization Styles */
 
 .project-link {
   padding: var(--space-2) var(--space-4);
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  background-color: var(--color-text-primary);
+  color: var(--color-background);
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
@@ -1154,7 +1145,7 @@ erformance Optimization Styles */
 }
 
 .project-link:hover {
-  background-color: var(--color-accent);
+  background-color: var(--color-text-secondary);
   transform: translateY(-2px);
 }
 
@@ -1183,7 +1174,7 @@ erformance Optimization Styles */
   font-size: var(--font-size-h3);
   font-weight: 600;
   margin-bottom: var(--space-4);
-  color: var(--color-primary);
+  color: var(--color-text-primary);
 }
 
 .skill-list {
@@ -1216,13 +1207,13 @@ erformance Optimization Styles */
 
 /* Contact Section */
 .contact {
-  background: var(--color-primary);
-  color: var(--color-dark);
+  background: var(--color-text-primary);
+  color: var(--color-background);
   padding: var(--space-24) 0;
 }
 
 .contact .section-title {
-  color: var(--color-dark);
+  color: var(--color-background);
 }
 
 .contact-content {
@@ -1234,7 +1225,7 @@ erformance Optimization Styles */
 .contact-message {
   font-size: var(--font-size-h3);
   margin-bottom: var(--space-8);
-  color: var(--color-dark);
+  color: var(--color-background);
 }
 
 .contact-links {
@@ -1246,8 +1237,8 @@ erformance Optimization Styles */
 
 .contact-links .contact-link {
   background-color: transparent;
-  color: var(--color-dark);
-  border: 2px solid var(--color-dark);
+  color: var(--color-background);
+  border: 2px solid var(--color-background);
   padding: var(--space-3) var(--space-6);
   border-radius: 20px;
   text-decoration: none;
@@ -1256,8 +1247,8 @@ erformance Optimization Styles */
 }
 
 .contact-links .contact-link:hover {
-  background-color: var(--color-dark);
-  color: var(--color-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 /* Responsive Design */

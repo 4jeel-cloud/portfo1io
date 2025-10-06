@@ -36,7 +36,7 @@ class CriticalCSSManager {
       }
 
       :root {
-        --color-primary: #ff6b35;
+        --color-primary: #000000;
         --color-secondary: #ffffff;
         --color-dark: #000000;
         --color-background: #ffffff;
@@ -45,9 +45,9 @@ class CriticalCSSManager {
         --color-text-secondary: #525252;
         --color-text-muted: #737373;
         --color-border: #e5e5e5;
-        --color-accent: #ff6b35;
-        --font-family-display: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-        --font-family-base: 'Helvetica Neue', Arial, sans-serif;
+        --color-accent: #000000;
+        --font-family-display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        --font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
         --font-size-display: 6rem;
         --font-size-h1: 4rem;
         --font-size-h2: 2.5rem;
