@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammed Ajeel - Portfolio</title>
+    <title>Muhammed Ajeel - DevOps Engineer & Cloud Specialist</title>
     
-    <!-- Modern Typography - Inspired by Reference -->
+    <!-- Modern Typography - Pexel-style Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* Modern Portfolio Design - Inspired by Reference Images */
@@ -19,14 +19,14 @@
         }
 
         :root {
-            --color-bg: #0a0a0a;
-            --color-surface: #0a0a0a;
-            --color-accent: #ff6b35;
+            --color-bg: #000000;
+            --color-surface: #111111;
+            --color-accent: #000000;
             --color-text: #ffffff;
             --color-text-muted: #888888;
             --color-border: #333333;
             --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-            --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         /* Subtle Animations */
@@ -93,10 +93,10 @@
 
         @keyframes textGlow {
             0%, 100% {
-                text-shadow: 0 0 3px rgba(255, 107, 53, 0.2);
+                text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
             }
             50% {
-                text-shadow: 0 0 8px rgba(255, 107, 53, 0.3), 0 0 12px rgba(255, 107, 53, 0.2);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 255, 255, 0.2);
             }
         }
 
@@ -401,49 +401,24 @@
             overflow-x: hidden;
         }
 
-        /* Grid System with Animation */
-        .grid-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 1;
+        /* Apply Inter font globally */
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .font-mono, 
+        code, 
+        pre,
+        .hero-name,
+        .stat-number,
+        .contents-item-number,
+        .education-year,
+        .certification-year,
+        .experience-period {
+            font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
         }
 
-        .grid-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(90deg, rgba(255, 107, 53, 0.1) 1px, transparent 1px),
-                linear-gradient(rgba(255, 107, 53, 0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
-            animation: gridMove 20s linear infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes gridMove {
-            0% {
-                transform: translate(0, 0);
-            }
-            25% {
-                transform: translate(-12px, -12px);
-            }
-            50% {
-                transform: translate(-24px, 0);
-            }
-            75% {
-                transform: translate(-12px, 12px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
-        }
+        /* Grid System Removed - Clean Black Theme */
 
         /* Skip Link - Hidden */
         .skip-link {
@@ -473,7 +448,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--color-border);
@@ -498,7 +473,7 @@
         }
 
         .nav-logo:hover {
-            color: var(--color-accent);
+            color: var(--color-text-muted);
         }
 
         .nav-menu {
@@ -524,7 +499,7 @@
         }
 
         .nav-link.active {
-            color: var(--color-accent);
+            color: var(--color-text);
         }
 
         .nav-link::after {
@@ -534,7 +509,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--color-accent);
+            background: var(--color-text);
             transition: width 0.3s ease;
         }
 
@@ -565,10 +540,7 @@
             letter-spacing: -0.05em;
             line-height: 0.85;
             margin-bottom: 40px;
-            background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--color-text);
         }
 
         .hero-subtitle {
@@ -583,7 +555,7 @@
         .hero-name {
             font-size: 20px;
             font-weight: 500;
-            color: var(--color-accent);
+            color: var(--color-text);
             margin-bottom: 20px;
             font-family: var(--font-mono);
             text-transform: uppercase;
@@ -622,7 +594,7 @@
         }
 
         .scroll-indicator:hover {
-            color: var(--color-accent);
+            color: var(--color-text);
         }
 
         .scroll-arrow {
@@ -693,7 +665,7 @@
         }
 
         .contents-item:hover {
-            border-color: var(--color-accent);
+            border-color: var(--color-text);
             padding-left: 20px;
         }
 
@@ -716,7 +688,7 @@
         .contents-item-number {
             font-family: var(--font-mono);
             font-size: 14px;
-            color: var(--color-accent);
+            color: var(--color-text);
             font-weight: 600;
         }
 
@@ -751,7 +723,7 @@
             letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 40px;
-            color: var(--color-accent);
+            color: var(--color-text);
         }
 
         .about-text {
@@ -765,7 +737,7 @@
         .about-visual {
             position: relative;
             height: 400px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, transparent 100%);
+            background: linear-gradient(135deg, var(--color-surface) 0%, transparent 100%);
             border-radius: 20px;
             overflow: hidden;
             display: flex;
@@ -799,7 +771,7 @@
         .stat-number {
             font-size: 32px;
             font-weight: 700;
-            color: var(--color-accent);
+            color: var(--color-text);
             font-family: var(--font-mono);
         }
 
@@ -985,8 +957,8 @@
         }
 
         .achievement {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text);
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
@@ -1160,8 +1132,8 @@
         }
 
         .tech-tag {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
@@ -1274,7 +1246,7 @@
             font-size: 64px;
             opacity: 0.6;
             color: var(--color-accent);
-            text-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
         .project-content {
@@ -1320,8 +1292,8 @@
         }
 
         .project-tag {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text);
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
@@ -1507,10 +1479,10 @@
 
         @keyframes subtleGlow {
             from {
-                text-shadow: 0 0 5px rgba(255, 107, 53, 0.2);
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
             }
             to {
-                text-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
             }
         }
 
@@ -1592,7 +1564,7 @@
             width: 45px;
             height: 45px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 107, 53, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             color: var(--color-text-muted);
             text-decoration: none;
@@ -1605,7 +1577,7 @@
             border-color: var(--color-accent);
             color: var(--color-bg);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .footer-section {
@@ -1684,7 +1656,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 107, 53, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             color: var(--color-accent);
             font-size: 12px;
@@ -1744,7 +1716,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .back-to-top.visible {
@@ -1754,7 +1726,7 @@
 
         .back-to-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         /* Mobile Responsive */
@@ -1909,7 +1881,7 @@
 
         .cursor.hover {
             transform: scale(1.5);
-            background: rgba(255, 107, 53, 0.8);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .cursor-follower.hover {
@@ -1935,8 +1907,8 @@
         }
 
         .cursor.link {
-            background: rgba(255, 107, 53, 0.9);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         /* Hide cursor on mobile devices */
@@ -2109,10 +2081,6 @@
     
     <!-- Main Content -->
     <main id="main-content" class="main-content">
-        <!-- Grid System -->
-        <div class="grid-container">
-            <div class="grid-lines"></div>
-        </div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -2122,8 +2090,8 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#contents" class="nav-link">Contents</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -2141,11 +2109,11 @@
         <div class="hero-content animate-fade-up">
             <div class="hero-name text-shimmer">Muhammed Ajeel</div>
             <h1 class="hero-title text-glow">Portfolio</h1>
-            <p class="hero-subtitle">Cloud Engineer & Cybersecurity Enthusiast</p>
+            <p class="hero-subtitle">DevOps Engineer & Cloud Specialist</p>
             <div class="hero-meta">
+                <span>DevOps</span>
                 <span>Cloud</span>
-                <span>Security</span>
-                <span>Innovation</span>
+                <span>Automation</span>
             </div>
         </div>
         <div class="hero-scroll animate-float">
@@ -2171,17 +2139,17 @@
                     </div>
                     <div class="contents-item-number">01</div>
                 </li>
-                <li class="contents-item animate-on-scroll tile-hover-lift" onclick="scrollToSection('education')">
-                    <div>
-                        <div class="contents-item-title text-shimmer">Education</div>
-                        <div class="contents-item-subtitle">Academic Journey</div>
-                    </div>
-                    <div class="contents-item-number">02</div>
-                </li>
                 <li class="contents-item animate-on-scroll tile-hover-lift" onclick="scrollToSection('experience')">
                     <div>
                         <div class="contents-item-title text-shimmer">Experience</div>
                         <div class="contents-item-subtitle">Professional Path</div>
+                    </div>
+                    <div class="contents-item-number">02</div>
+                </li>
+                <li class="contents-item animate-on-scroll tile-hover-lift" onclick="scrollToSection('education')">
+                    <div>
+                        <div class="contents-item-title text-shimmer">Education</div>
+                        <div class="contents-item-subtitle">Academic Journey</div>
                     </div>
                     <div class="contents-item-number">03</div>
                 </li>
@@ -2215,11 +2183,11 @@
         <div class="about-wrapper">
             <div class="about-content animate-on-scroll">
                 <h2 class="about-title">Muhammed Ajeel</h2>
-                <div class="about-role">Cloud Engineer & Cybersecurity Enthusiast</div>
+                <div class="about-role">DevOps Engineer & Cloud Specialist</div>
                 <p class="about-text">
-                    I am a passionate technology professional specializing in cloud computing, cybersecurity, 
-                    and application development. My work focuses on building secure, scalable cloud solutions 
-                    and developing innovative security systems that protect digital assets in an evolving threat landscape.
+                    I am a passionate DevOps Engineer specializing in cloud infrastructure, automation, 
+                    and containerized applications. My work focuses on building scalable, automated cloud solutions 
+                    using Kubernetes, Docker, and CI/CD pipelines to optimize development workflows and infrastructure efficiency.
                 </p>
                 <div class="about-stats">
                     <div class="stat-item">
@@ -2242,74 +2210,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="education-wrapper">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title text-glow">Education</h2>
-                <div class="section-subtitle">Academic Foundation</div>
-            </div>
-            <div class="education-timeline">
-                <div class="education-item animate-on-scroll">
-                    <div class="education-year">Jul 2025 – Jul 2027</div>
-                    <div class="education-content">
-                        <h3 class="education-degree">🎓 Master of Computer Applications (MCA)</h3>
-                        <div class="education-school">Jain (Deemed-to-be University)</div>
-                        <div class="education-details">
-                            <p>Specialization: Cloud & DevOps</p>
-                            <p>Status: Expected Jul 2027</p>
-                        </div>
-                        <div class="education-achievements">
-                            <span class="achievement">Cloud Computing</span>
-                            <span class="achievement">DevOps</span>
-                            <span class="achievement">Infrastructure</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-item animate-on-scroll">
-                    <div class="education-year">Sep 2022 – May 2025</div>
-                    <div class="education-content">
-                        <h3 class="education-degree">🎓 Bachelor of Computer Applications (BCA)</h3>
-                        <div class="education-school">Krupanidhi School of Management, Bengaluru North University</div>
-                        <div class="education-details">
-                            <p>Specialization: Cloud Computing</p>
-                            <p>CGPA: 7.7/10</p>
-                            <p>Status: Completed</p>
-                        </div>
-                        <div class="education-achievements">
-                            <span class="achievement">Cloud Computing</span>
-                            <span class="achievement">Programming</span>
-                            <span class="achievement">Cybersecurity</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-item animate-on-scroll">
-                    <div class="education-year">2020 – 2022</div>
-                    <div class="education-content">
-                        <h3 class="education-degree">🎓 Higher Secondary</h3>
-                        <div class="education-school">WMO English School, India</div>
-                        <div class="education-details">
-                            <p>Specialization: Commerce</p>
-                            <p>Status: Completed</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-item animate-on-scroll">
-                    <div class="education-year">Completed</div>
-                    <div class="education-content">
-                        <h3 class="education-degree">🎓 Secondary School</h3>
-                        <div class="education-school">WMO Green Mount School, India</div>
-                        <div class="education-details">
-                            <p>Status: Completed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="experience-wrapper">
@@ -2318,6 +2218,39 @@
                 <div class="section-subtitle">Professional Journey</div>
             </div>
             <div class="experience-timeline">
+                <div class="experience-item animate-on-scroll">
+                    <div class="experience-period">Present</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">DevOps Engineer</h3>
+                        <div class="experience-company">2Cloud</div>
+                        <div class="experience-description">
+                            <p>Architecting and deploying scalable cloud infrastructure with focus on automation, 
+                            containerization, and CI/CD pipeline implementation for enterprise applications.</p>
+                            <ul class="experience-achievements">
+                                <li>Architected and deployed scalable cloud infrastructure on AWS</li>
+                                <li>Implemented CI/CD pipelines using Jenkins and GitLab</li>
+                                <li>Managed containerized applications with Kubernetes and Docker</li>
+                                <li>Configured and optimized Apache2 and Nginx web servers</li>
+                                <li>Automated infrastructure provisioning using Terraform and Ansible</li>
+                                <li>Monitored system performance and implemented logging solutions</li>
+                            </ul>
+                        </div>
+                        <div class="experience-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Apache2</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">Ansible</span>
+                            <span class="tech-tag">GitLab CI/CD</span>
+                        </div>
+                        <div class="experience-links">
+                            <a href="https://www.linkedin.com/in/muhammed-ajeel/" target="_blank" class="experience-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="experience-item animate-on-scroll">
                     <div class="experience-period">Jul 2025 – Present</div>
                     <div class="experience-content">
@@ -2394,6 +2327,72 @@
                         </div>
                         <div class="experience-links">
                             <a href="https://drive.google.com/file/d/1g3MwIXhA8mcwUdF8nu0h7Tkx9823Thfq/view?usp=sharing" target="_blank" class="experience-link">Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="education-wrapper">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title text-glow">Education</h2>
+                <div class="section-subtitle">Academic Foundation</div>
+            </div>
+            <div class="education-timeline">
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">Jul 2025 – Jul 2027</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">🎓 Master of Computer Applications (MCA)</h3>
+                        <div class="education-school">Jain (Deemed-to-be University)</div>
+                        <div class="education-details">
+                            <p>Specialization: Cloud & DevOps</p>
+                            <p>Status: Expected Jul 2027</p>
+                        </div>
+                        <div class="education-achievements">
+                            <span class="achievement">Cloud Computing</span>
+                            <span class="achievement">DevOps</span>
+                            <span class="achievement">Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">Sep 2022 – May 2025</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">🎓 Bachelor of Computer Applications (BCA)</h3>
+                        <div class="education-school">Krupanidhi School of Management, Bengaluru North University</div>
+                        <div class="education-details">
+                            <p>Specialization: Cloud Computing</p>
+                            <p>CGPA: 7.7/10</p>
+                            <p>Status: Completed</p>
+                        </div>
+                        <div class="education-achievements">
+                            <span class="achievement">Cloud Computing</span>
+                            <span class="achievement">Programming</span>
+                            <span class="achievement">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">2020 – 2022</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">🎓 Higher Secondary</h3>
+                        <div class="education-school">WMO English School, India</div>
+                        <div class="education-details">
+                            <p>Specialization: Commerce</p>
+                            <p>Status: Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">Completed</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">🎓 Secondary School</h3>
+                        <div class="education-school">WMO Green Mount School, India</div>
+                        <div class="education-details">
+                            <p>Status: Completed</p>
                         </div>
                     </div>
                 </div>
@@ -2674,8 +2673,8 @@
             <div class="footer-brand">
                 <div class="footer-logo">Muhammed Ajeel</div>
                 <p class="footer-description text-shimmer">
-                    Cloud Engineer & Cybersecurity Professional passionate about building secure, 
-                    scalable solutions and protecting digital assets in evolving environments.
+                    DevOps Engineer & Cloud Specialist passionate about building scalable, 
+                    automated solutions and optimizing cloud infrastructure for enterprise applications.
                 </p>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/muhammed-ajeel/" target="_blank" class="social-link" title="LinkedIn">
@@ -2697,8 +2696,8 @@
                 <h3 class="footer-title">Quick Links</h3>
                 <div class="footer-links">
                     <a href="#about" class="footer-link">About Me</a>
-                    <a href="#education" class="footer-link">Education</a>
                     <a href="#experience" class="footer-link">Experience</a>
+                    <a href="#education" class="footer-link">Education</a>
                     <a href="#projects" class="footer-link">Projects</a>
                     <a href="#certifications" class="footer-link">Certifications</a>
                 </div>
@@ -2708,10 +2707,10 @@
                 <h3 class="footer-title">Services</h3>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Cloud Architecture</a>
-                    <a href="#" class="footer-link">Cybersecurity Consulting</a>
-                    <a href="#" class="footer-link">Penetration Testing</a>
-                    <a href="#" class="footer-link">Web Development</a>
-                    <a href="#" class="footer-link">System Security</a>
+                    <a href="#" class="footer-link">DevOps Consulting</a>
+                    <a href="#" class="footer-link">CI/CD Automation</a>
+                    <a href="#" class="footer-link">Container Orchestration</a>
+                    <a href="#" class="footer-link">Infrastructure as Code</a>
                 </div>
             </div>
             
@@ -2851,7 +2850,7 @@
             item.style.animationDelay = `${index * 0.1}s`;
             
             item.addEventListener('mouseenter', () => {
-                item.style.backgroundColor = 'rgba(255, 107, 53, 0.05)';
+                item.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                 item.style.transform = 'translateX(10px)';
             });
             

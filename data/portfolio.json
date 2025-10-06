@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Muhammed Ajeel",
-    "title": "Cloud Engineer & Cybersecurity Professional",
-    "bio": "MCA student (Cloud & DevOps, expected 2027) with hands-on experience in AWS cloud, IAM, VPC, and cybersecurity (VAPT, API Security). Skilled in Python, PHP, and cloud infrastructure projects. Passionate about designing secure, scalable systems and protecting digital assets in evolving environments.",
-    "summary": "Cloud Engineer & Cybersecurity Enthusiast specializing in AWS cloud infrastructure, VAPT, and API Security. Dedicated to creating secure, scalable solutions while maintaining the highest security standards. Strong background in Python development, cloud security, and penetration testing.",
+    "title": "DevOps Engineer & Cloud Specialist",
+    "bio": "MCA student (Cloud & DevOps, expected 2027) with hands-on experience in AWS cloud infrastructure, Kubernetes, Docker, and CI/CD pipelines. Skilled in Python, cloud automation, and containerized applications. Passionate about designing scalable, automated systems and optimizing cloud infrastructure for enterprise applications.",
+    "summary": "DevOps Engineer specializing in AWS cloud infrastructure, Kubernetes orchestration, and CI/CD automation. Dedicated to creating scalable, automated solutions with expertise in containerization, infrastructure as code, and cloud optimization. Strong background in Python development and cloud architecture.",
     "contact": {
       "email": "muhammedajeel11@gmail.com",
       "phone": "+91 8075364425",
@@ -115,6 +115,21 @@
   "experience": [
     {
       "id": "exp1",
+      "company": "2Cloud",
+      "title": "DevOps Engineer",
+      "duration": "Present",
+      "achievements": [
+        "Architected and deployed scalable cloud infrastructure on AWS",
+        "Implemented CI/CD pipelines using Jenkins and GitLab",
+        "Managed containerized applications with Kubernetes and Docker",
+        "Configured and optimized Apache2 and Nginx web servers",
+        "Automated infrastructure provisioning using Terraform and Ansible",
+        "Monitored system performance and implemented logging solutions"
+      ],
+      "technologies": ["AWS", "Kubernetes", "Docker", "Apache2", "Nginx", "Jenkins", "Terraform", "Ansible", "GitLab CI/CD"]
+    },
+    {
+      "id": "exp2",
       "company": "CyArt",
       "title": "Cyber Security Intern (VAPT)",
       "duration": "Jul 2025 – Present",
@@ -127,7 +142,7 @@
       "technologies": ["Python", "Nmap", "Metasploit", "Burp Suite", "OWASP"]
     },
     {
-      "id": "exp2",
+      "id": "exp3",
       "company": "RISS Technologies, Calicut",
       "title": "Python Developer Intern",
       "duration": "Jan 2025",
@@ -140,7 +155,7 @@
       "technologies": ["Python", "Django", "OpenCV", "MySQL"]
     },
     {
-      "id": "exp3",
+      "id": "exp4",
       "company": "NovaNectar Services Pvt. Ltd",
       "title": "Python Developer Intern",
       "duration": "Sep 2024 – Oct 2024",
@@ -241,9 +256,17 @@
       "category": "Cloud & DevOps",
       "skills": [
         { "name": "AWS (EC2, VPC, S3, IAM, Lex)", "proficiency": "advanced" },
+        { "name": "Kubernetes", "proficiency": "advanced" },
+        { "name": "Docker", "proficiency": "advanced" },
+        { "name": "Apache2", "proficiency": "advanced" },
+        { "name": "Nginx", "proficiency": "advanced" },
+        { "name": "Jenkins", "proficiency": "advanced" },
+        { "name": "Terraform", "proficiency": "intermediate" },
+        { "name": "Ansible", "proficiency": "intermediate" },
+        { "name": "GitLab CI/CD", "proficiency": "advanced" },
         { "name": "Cloud Security", "proficiency": "advanced" },
-        { "name": "Infrastructure as Code", "proficiency": "intermediate" },
-        { "name": "DevOps Practices", "proficiency": "intermediate" }
+        { "name": "Infrastructure as Code", "proficiency": "advanced" },
+        { "name": "DevOps Practices", "proficiency": "expert" }
       ]
     },
     {

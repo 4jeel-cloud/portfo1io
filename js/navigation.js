@@ -56,7 +56,7 @@ class Navigation {
         link.addEventListener('click', (e) => {
           // Add touch feedback
           if (this.isMenuOpen) {
-            link.style.backgroundColor = 'rgba(255, 107, 53, 0.1)';
+            link.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
             setTimeout(() => {
               link.style.backgroundColor = '';
               this.closeMobileMenu();
@@ -67,7 +67,7 @@ class Navigation {
         // Touch feedback for menu links
         link.addEventListener('touchstart', () => {
           if (this.isMenuOpen) {
-            link.style.backgroundColor = 'rgba(255, 107, 53, 0.1)';
+            link.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
           }
         }, { passive: true });
 
