@@ -8,7 +8,11 @@
     <!-- Modern Typography - Pexel-style Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap&v=3" rel="stylesheet">
+    
+    <!-- Preload key font files -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
     
     <style>
         /* Modern Portfolio Design - Inspired by Reference Images */
@@ -25,8 +29,9 @@
             --color-text: #ffffff;
             --color-text-muted: #888888;
             --color-border: #333333;
-            --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+            --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-display: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         /* Subtle Animations */
@@ -400,10 +405,40 @@
             line-height: 1.4;
             overflow-x: hidden;
         }
+        
+        /* Force font loading */
+        .font-preload {
+            font-family: 'Inter';
+            font-weight: 400;
+            visibility: hidden;
+            position: absolute;
+        }
+        
+        .font-preload::before {
+            content: 'Loading fonts...';
+        }
 
-        /* Apply Inter font globally */
+        /* Apply Poppins font globally - Pexels-style blocky aesthetic */
         * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+        }
+        
+        /* Ensure fonts are loaded */
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            font-display: swap;
+        }
+        
+        /* Pexels-style headings with Montserrat for extra block effect */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em !important;
+        }
+        
+        /* Body text with Poppins for clean, modern look */
+        p, span, div, a, button, input, textarea, select {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
         }
         
         .font-mono, 
@@ -2072,6 +2107,12 @@
     </style>
 </head>
 <body>
+    <!-- Font preload elements -->
+    <div class="font-preload" style="font-family: 'Poppins'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'Poppins'; font-weight: 600;">.</div>
+    <div class="font-preload" style="font-family: 'Montserrat'; font-weight: 700;">.</div>
+    <div class="font-preload" style="font-family: 'JetBrains Mono'; font-weight: 400;">.</div>
+    
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
@@ -2983,6 +3024,27 @@
     <script src="js/main.js"></script>
     
     <script>
+        // Font loading check
+        document.fonts.ready.then(() => {
+            console.log('Fonts loaded successfully');
+            document.body.classList.add('fonts-loaded');
+        });
+        
+        // Fallback font loading
+        if (document.fonts && document.fonts.load) {
+            document.fonts.load('400 16px Inter').then(() => {
+                console.log('Inter font loaded');
+            }).catch(err => {
+                console.warn('Inter font failed to load:', err);
+            });
+            
+            document.fonts.load('400 16px JetBrains Mono').then(() => {
+                console.log('JetBrains Mono font loaded');
+            }).catch(err => {
+                console.warn('JetBrains Mono font failed to load:', err);
+            });
+        }
+        
         // Initialize the portfolio app when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             if (window.App) {
