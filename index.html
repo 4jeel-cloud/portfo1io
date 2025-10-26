@@ -8,11 +8,11 @@
     <!-- Modern Typography - Pexel-style Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap&v=4" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Pixelify+Sans:wght@400..700&display=swap&v=5" rel="stylesheet">
     
-    <!-- Preload key font files -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Preload key pixel font files -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/pixelifysans/v1/CHy2V-3HFUT7aC4iv1TxGDR9DHEserHN25py.woff2" as="font" type="font/woff2" crossorigin>
     
     <style>
         /* Modern Portfolio Design - Inspired by Reference Images */
@@ -33,10 +33,11 @@
             --color-secondary: #ffffff;
             --color-highlight: #ff0080;
             --color-info: #00d4ff;
-            --font-mono: 'Space Mono', 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
-            --font-sans: 'Rajdhani', 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-display: 'Orbitron', 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-pixel: 'Orbitron', 'Space Mono', monospace;
+            --font-mono: 'VT323', 'Courier New', monospace;
+            --font-sans: 'Pixelify Sans', 'Silkscreen', monospace;
+            --font-display: 'Press Start 2P', monospace;
+            --font-pixel: 'Press Start 2P', monospace;
+            --font-body: 'Silkscreen', 'VT323', monospace;
         }
 
         /* Subtle Animations */
@@ -321,64 +322,98 @@
             content: 'Loading pixel fonts...';
         }
         
-        /* Enhanced pixel-like text rendering */
+        /* Blocky pixel text rendering - disable smoothing for authentic look */
         * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: unset;
+            text-rendering: optimizeSpeed;
+            font-smooth: never;
         }
         
-        /* Pixel-perfect crisp text */
+        /* Pixel-perfect blocky text */
         .pixel-fonts-loaded * {
-            font-variant-numeric: tabular-nums;
-            font-feature-settings: "tnum";
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
         
-        /* Tech/gaming aesthetic enhancements */
+        /* Retro gaming aesthetic enhancements */
         .tech-text {
             font-family: var(--font-pixel) !important;
-            text-shadow: 0 0 2px var(--color-accent);
-            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px var(--color-accent);
+            letter-spacing: 2px;
         }
         
         .glow-text {
             text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 15px var(--color-accent);
         }
+        
+        /* 8-bit style text shadow for headings */
+        h1, h2, h3 {
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Pixel button style */
+        button, .btn {
+            font-family: var(--font-pixel) !important;
+            border: 2px solid var(--color-accent);
+            background: var(--color-bg);
+            color: var(--color-accent);
+            padding: 8px 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover, .btn:hover {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-shadow: none;
+        }
 
-        /* Apply pixel-like fonts globally */
+        /* Apply blocky pixel fonts globally */
         * {
-            font-family: var(--font-sans) !important;
+            font-family: var(--font-body) !important;
             font-weight: 400;
         }
         
-        /* Ensure fonts are loaded */
+        /* Ensure pixel fonts are loaded */
         body {
-            font-family: var(--font-sans) !important;
+            font-family: var(--font-body) !important;
             font-display: swap;
             font-weight: 400;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
         
-        /* Pixel-style headings with Orbitron for futuristic look */
+        /* Blocky pixel headings with Press Start 2P */
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-display) !important;
-            font-weight: 700 !important;
-            letter-spacing: 1px !important;
+            font-weight: 400 !important;
+            letter-spacing: 2px !important;
             text-transform: uppercase;
+            line-height: 1.2;
         }
         
-        /* Body text with Rajdhani for clean, tech look */
+        /* Body text with Silkscreen for readable pixel blocks */
         p, span, div, a, button, input, textarea, select {
-            font-family: var(--font-sans) !important;
-            letter-spacing: 0.3px;
+            font-family: var(--font-body) !important;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
         }
         
-        /* Monospace elements with Space Mono */
+        /* Monospace elements with VT323 for retro terminal look */
         code, pre, .font-mono, 
         .hero-name, .stat-number, .contents-item-number,
         .education-year, .certification-year, .experience-period {
             font-family: var(--font-mono) !important;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-size: 1.1em;
+        }
+        
+        /* Large text gets Pixelify Sans for better readability */
+        .hero-title, .section-title {
+            font-family: var(--font-sans) !important;
+            font-weight: 600;
         }
         
         .font-mono, 
@@ -2041,9 +2076,10 @@
 </head>
 <body>
     <!-- Font preload elements -->
-    <div class="font-preload" style="font-family: 'Orbitron'; font-weight: 700;">.</div>
-    <div class="font-preload" style="font-family: 'Rajdhani'; font-weight: 400;">.</div>
-    <div class="font-preload" style="font-family: 'Space Mono'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'Press Start 2P'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'Silkscreen'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'VT323'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'Pixelify Sans'; font-weight: 400;">.</div>
     
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
@@ -2962,17 +2998,18 @@
             document.body.classList.add('fonts-loaded');
         });
         
-        // Optimized font loading
+        // Optimized pixel font loading
         if (document.fonts && document.fonts.load) {
             Promise.all([
-                document.fonts.load('400 16px Orbitron'),
-                document.fonts.load('400 16px Rajdhani'),
-                document.fonts.load('400 16px Space Mono')
+                document.fonts.load('400 16px "Press Start 2P"'),
+                document.fonts.load('400 16px Silkscreen'),
+                document.fonts.load('400 16px VT323'),
+                document.fonts.load('400 16px "Pixelify Sans"')
             ]).then(() => {
-                console.log('Pixel fonts loaded successfully');
+                console.log('Blocky pixel fonts loaded successfully');
                 document.body.classList.add('pixel-fonts-loaded');
             }).catch(err => {
-                console.warn('Some fonts failed to load:', err);
+                console.warn('Some pixel fonts failed to load:', err);
             });
         }
         
