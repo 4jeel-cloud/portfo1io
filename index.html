@@ -8,11 +8,11 @@
     <!-- Modern Typography - Pexel-style Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap&v=3" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap&v=4" rel="stylesheet">
     
     <!-- Preload key font files -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2" as="font" type="font/woff2" crossorigin>
     
     <style>
         /* Modern Portfolio Design - Inspired by Reference Images */
@@ -25,15 +25,18 @@
         :root {
             --color-bg: #000000;
             --color-surface: #111111;
-            --color-accent: #ff6b35;
+            --color-accent: #00ff88;
             --color-text: #ffffff;
             --color-text-muted: #888888;
             --color-border: #333333;
-            --color-primary: #ff6b35;
+            --color-primary: #00ff88;
             --color-secondary: #ffffff;
-            --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
-            --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --font-display: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            --color-highlight: #ff0080;
+            --color-info: #00d4ff;
+            --font-mono: 'Space Mono', 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+            --font-sans: 'Rajdhani', 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Orbitron', 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-pixel: 'Orbitron', 'Space Mono', monospace;
         }
 
         /* Subtle Animations */
@@ -308,39 +311,74 @@
             overflow-x: hidden;
         }
         
-        /* Force font loading */
+        /* Pixel font loading */
         .font-preload {
-            font-family: 'Inter';
-            font-weight: 400;
             visibility: hidden;
             position: absolute;
         }
         
         .font-preload::before {
-            content: 'Loading fonts...';
+            content: 'Loading pixel fonts...';
+        }
+        
+        /* Enhanced pixel-like text rendering */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* Pixel-perfect crisp text */
+        .pixel-fonts-loaded * {
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum";
+        }
+        
+        /* Tech/gaming aesthetic enhancements */
+        .tech-text {
+            font-family: var(--font-pixel) !important;
+            text-shadow: 0 0 2px var(--color-accent);
+            letter-spacing: 1px;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 15px var(--color-accent);
         }
 
-        /* Apply Poppins font globally - Pexels-style blocky aesthetic */
+        /* Apply pixel-like fonts globally */
         * {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            font-family: var(--font-sans) !important;
+            font-weight: 400;
         }
         
         /* Ensure fonts are loaded */
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            font-family: var(--font-sans) !important;
             font-display: swap;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         
-        /* Pexels-style headings with Montserrat for extra block effect */
+        /* Pixel-style headings with Orbitron for futuristic look */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-family: var(--font-display) !important;
             font-weight: 700 !important;
-            letter-spacing: -0.02em !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase;
         }
         
-        /* Body text with Poppins for clean, modern look */
+        /* Body text with Rajdhani for clean, tech look */
         p, span, div, a, button, input, textarea, select {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            font-family: var(--font-sans) !important;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Monospace elements with Space Mono */
+        code, pre, .font-mono, 
+        .hero-name, .stat-number, .contents-item-number,
+        .education-year, .certification-year, .experience-period {
+            font-family: var(--font-mono) !important;
+            letter-spacing: 0.5px;
         }
         
         .font-mono, 
@@ -2003,8 +2041,9 @@
 </head>
 <body>
     <!-- Font preload elements -->
-    <div class="font-preload" style="font-family: 'Poppins'; font-weight: 400;">.</div>
-    <div class="font-preload" style="font-family: 'Montserrat'; font-weight: 700;">.</div>
+    <div class="font-preload" style="font-family: 'Orbitron'; font-weight: 700;">.</div>
+    <div class="font-preload" style="font-family: 'Rajdhani'; font-weight: 400;">.</div>
+    <div class="font-preload" style="font-family: 'Space Mono'; font-weight: 400;">.</div>
     
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
@@ -2925,10 +2964,15 @@
         
         // Optimized font loading
         if (document.fonts && document.fonts.load) {
-            document.fonts.load('400 16px Poppins').then(() => {
-                console.log('Poppins font loaded');
+            Promise.all([
+                document.fonts.load('400 16px Orbitron'),
+                document.fonts.load('400 16px Rajdhani'),
+                document.fonts.load('400 16px Space Mono')
+            ]).then(() => {
+                console.log('Pixel fonts loaded successfully');
+                document.body.classList.add('pixel-fonts-loaded');
             }).catch(err => {
-                console.warn('Poppins font failed to load:', err);
+                console.warn('Some fonts failed to load:', err);
             });
         }
         
