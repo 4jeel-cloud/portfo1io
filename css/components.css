@@ -1,7 +1,3 @@
-/* ==========================================================================
-   FOUNDATIONAL UI COMPONENTS AND DESIGN SYSTEM
-   ========================================================================== */
-
 /* Typography Components */
 .typography-display {
   font-size: var(--font-size-display);
@@ -835,12 +831,12 @@
     gap: var(--space-8);
     text-align: center;
   }
-  
+
   .headshot {
     width: 250px;
     height: 250px;
   }
-  
+
   .about-text {
     text-align: left;
   }
@@ -851,7 +847,7 @@
     width: 200px;
     height: 200px;
   }
-  
+
   .about-text {
     font-size: var(--font-size-body);
   }
@@ -877,7 +873,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: var(--grid-unit) var(--grid-unit);
@@ -893,14 +889,12 @@
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 20%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.2) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 20%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.2) 80%,
+      transparent 100%);
   pointer-events: none;
 }
 
@@ -936,12 +930,10 @@
 .contact-divider {
   width: 2px;
   height: 200px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--color-dark) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      var(--color-dark) 50%,
+      transparent 100%);
   justify-self: center;
 }
 
@@ -1105,9 +1097,12 @@
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -1135,9 +1130,12 @@
 }
 
 @keyframes contactLinkFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -1150,21 +1148,21 @@
     gap: var(--space-12);
     text-align: center;
   }
-  
+
   .contact-title-section {
     text-align: center;
     padding-right: 0;
   }
-  
+
   .contact-content-section {
     text-align: center;
     padding-left: 0;
   }
-  
+
   .contact-divider {
     display: none;
   }
-  
+
   .contact::after {
     display: none;
   }
@@ -1174,11 +1172,11 @@
   .contact {
     padding: var(--space-16) 0;
   }
-  
+
   .contact .section-title {
     font-size: clamp(3rem, 10vw, 5rem);
   }
-  
+
   .contact-subtitle {
     max-width: none;
   }
@@ -1188,15 +1186,15 @@
   .contact {
     padding: var(--space-12) 0;
   }
-  
+
   .contact .container {
     gap: var(--space-8);
   }
-  
+
   .contact-message {
     font-size: var(--font-size-h3);
   }
-  
+
   .contact-footer {
     position: relative;
     bottom: auto;
@@ -1211,6 +1209,7 @@
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -1519,7 +1518,7 @@
     left: 20px;
     transform: none;
   }
-  
+
   .timeline-item {
     width: 100%;
     left: 0 !important;
@@ -1528,16 +1527,16 @@
     text-align: left;
     margin-bottom: var(--space-12);
   }
-  
+
   .timeline-item::before {
     left: 12px !important;
     right: auto !important;
   }
-  
+
   .timeline-card {
     margin-left: 0;
   }
-  
+
   .timeline-technologies {
     justify-content: flex-start;
   }
@@ -1547,20 +1546,20 @@
   .timeline {
     padding: var(--space-4) 0;
   }
-  
+
   .timeline-item {
     padding-left: var(--space-8);
     margin-bottom: var(--space-8);
   }
-  
+
   .timeline-card {
     padding: var(--space-4);
   }
-  
+
   .timeline-company {
     font-size: var(--font-size-body-large);
   }
-  
+
   .timeline-title {
     font-size: var(--font-size-body);
   }
@@ -1998,38 +1997,38 @@
     padding: var(--space-4);
     gap: var(--space-2);
   }
-  
+
   .filter-btn {
     padding: var(--space-2) var(--space-3);
     font-size: 12px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  
+
   .project-card {
     margin: 0 var(--space-2);
   }
-  
+
   .project-image-container {
     height: 200px;
   }
-  
+
   .project-content {
     padding: var(--space-4);
   }
-  
+
   .project-title {
     font-size: var(--font-size-body-large);
   }
-  
+
   .project-links {
     flex-direction: column;
     gap: var(--space-2);
   }
-  
+
   .project-link {
     text-align: center;
     justify-content: center;
@@ -2041,21 +2040,21 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .filter-btn {
     width: 100%;
     max-width: 200px;
     text-align: center;
   }
-  
+
   .project-image-container {
     height: 180px;
   }
-  
+
   .project-content {
     padding: var(--space-3);
   }
-  
+
   .project-outcomes {
     padding: var(--space-3);
   }
@@ -2063,9 +2062,12 @@
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
   }
+
   50% {
     opacity: 1;
   }
@@ -2162,6 +2164,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2169,16 +2172,24 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40% {
     transform: translateX(-50%) translateY(-10px);
   }
+
   60% {
     transform: translateX(-50%) translateY(-5px);
   }
 }
+
 /* =
 =========================================================================
    SKILLS SECTION COMPONENTS
@@ -2259,7 +2270,7 @@
   pointer-events: none;
 }
 
-.skills-search:focus + .search-icon {
+.skills-search:focus+.search-icon {
   color: var(--color-accent);
 }
 
@@ -2676,9 +2687,12 @@
 
 /* Animations */
 @keyframes searchPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
   }
@@ -2688,15 +2702,19 @@
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -2707,30 +2725,30 @@
   .skills-controls {
     padding: var(--space-6);
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .skill-category {
     padding: var(--space-4);
   }
-  
+
   .skill-category-title {
     font-size: var(--font-size-body-large);
   }
-  
+
   .category-icon {
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
   }
-  
+
   .skills-list {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
-  
+
   .skill-item {
     padding: var(--space-3);
   }
@@ -2740,26 +2758,26 @@
   .skills-controls {
     padding: var(--space-4);
   }
-  
+
   .skills-search-container {
     max-width: none;
   }
-  
+
   .skills-filter {
     justify-content: center;
   }
-  
+
   .skills-filter-btn {
     font-size: var(--font-size-small);
     padding: var(--space-1) var(--space-3);
   }
-  
+
   .skill-category-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-3);
   }
-  
+
   .category-toggle {
     align-self: flex-end;
   }
@@ -2770,12 +2788,12 @@
   .skill-item {
     border-width: 3px;
   }
-  
+
   .skill-item:hover,
   .skill-item.expanded {
     border-width: 3px;
   }
-  
+
   .proficiency-bar {
     border: 1px solid var(--color-gray-400);
   }
@@ -2783,25 +2801,26 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
   .skill-item,
   .skill-category,
   .proficiency-fill,
   .toggle-icon {
     transition: none;
   }
-  
+
   .skill-item:hover {
     transform: none;
   }
-  
+
   .skill-category:hover {
     transform: none;
   }
-  
+
   .proficiency-fill::after {
     animation: none;
   }
-  
+
   .skill-item.search-highlight {
     animation: none;
   }
